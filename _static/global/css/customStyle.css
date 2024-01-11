@@ -1,0 +1,49 @@
+.att-box{
+    border-style: dashed;
+    padding: 0px 20px 5px 20px;
+    /* background-color: lightpink; */
+    border-width: medium ;
+    margin-top: 40px;
+}
+
+
+input.larger {
+  width: 3vw;
+  height: 3vw;
+
+  max-width: 25px;
+  max-height: 25px;
+
+  min-width: 15px;
+  min-height: 15px;
+}
+
+
+
+
+input[type='range']::-webkit-slider-thumb {
+    width: 30px;
+    -webkit-appearance: none;
+    height: 30px;
+    cursor: pointer;
+    background: bisque; 
+    border-radius: 50%;
+  }
+
+table.radiotable th, table.radiotable td {
+  padding: 12px;
+  text-align: center; /* Center-align the entire table */
+  max-width: none; /* No max-width for the entire table */
+}
+
+/* Left-align the first column */
+table.radiotable th:first-child,
+table.radiotable td:first-child {
+  text-align: left;
+}
+
+/* Alternating row colors */
+table.radiotable tr:nth-child(even) {
+  background-color: #c0e3e0;
+}
+

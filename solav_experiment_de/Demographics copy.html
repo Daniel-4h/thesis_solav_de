@@ -1,0 +1,32 @@
+{% block styles %}
+    <link href="{{ static 'global/css/generalStyle.css'}}" rel="stylesheet">
+    <link href="{{ static 'global/css/customStyle.css'}}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    {{ Lexicon.demographics_title }}
+{% endblock %}
+
+{% block content %}
+
+<p> {{ Lexicon.demographics_header }}</p>
+
+<form method="post">
+    {% for field in form %}
+        <div>
+            <label>{{ field.label }}</label>
+            {{ field }}
+        </div>
+    {% endfor %}
+</form>
+
+
+<div class="next-btn radiotable">  
+    <div style="float: right; padding-top: 2vh;">
+         {% next_button %}
+        
+    </div>
+</div> 
+{% endblock %}
+
+

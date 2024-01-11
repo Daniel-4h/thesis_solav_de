@@ -9,8 +9,13 @@ SESSION_CONFIGS = [
         num_demo_participants=3,
     ),
     dict(
-        name='survey', app_sequence=['survey', 'payment_info'], num_demo_participants=1
+        name='survey', app_sequence=['survey', 'payment_info'], num_demo_participants=3
     ),
+    dict(
+        name='intro_lex_test',
+        app_sequence=['Intro'],
+        num_demo_participants=100,
+     )
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -27,7 +32,7 @@ SESSION_FIELDS = []
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'de'
 
 # e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
