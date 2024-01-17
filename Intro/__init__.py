@@ -1,7 +1,7 @@
 import random
 
 from otree.api import *
-from .lexicon_de import Lexicon
+from .lexicon import Lexicon
 
 
 class C(BaseConstants):

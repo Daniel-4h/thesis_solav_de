@@ -1,4 +1,7 @@
 from otree.api import *
+import random
+
+from .lexicon import Lexicon
 
 
 class C(BaseConstants):
@@ -30,17 +33,17 @@ def make_likert10(label):
 
 class Player(BasePlayer):
     ### Climate Change Concern Scale by Tobler et al. 2012
-    ccc1 = make_likert5("Wir müssen das empfindliche Klimagleichgewicht schützen.") ## concern 4 items
-    ccc2 = make_likert5("Der Klimaschutz ist wichtig für unsere Zukunft.")
-    ccc3 = make_likert5("Ich mache mir Sorgen über den Zustand des Klimas.")
-    ccc4 = make_likert5("Der Klimawandel hat ernste Folgen für die Menschheit und die Natur.")
-    ccc10 = make_likert5("Der Klimawandel und seine Folgen werden in den Medien übertrieben.") ## skepticism 7 items
-    ccc11 = make_likert5("Der Klimawandel ist ein betrügerisches Geschäft.")
-    ccc12 = make_likert5("Solange Metereologen nicht einmal richtig das Wetter vorhersagen können, kann das Klima auch nicht zuverlässig vorhergesagt werden.")
-    ccc13 = make_likert5("Es gibt wichtigere Probleme als den Klimaschutz.")
-    ccc14 = make_likert5("Ich fühle mich nicht von dem Klimawandel bedroht.")
-    ccc15 = make_likert5("Die Folgen des Klimawandels sind unvorhersehbar, deswegen ist mein klimafreundliches Verhalten vergeblich.")
-    ccc16 = make_likert5("Klimaschutz behindert unnötigerweise das Wirtschaftswachstum.")
+    ccc1 = make_likert5(Lexicon.ccc1Label) ## concern 4 items
+    ccc2 = make_likert5(Lexicon.ccc2Label)
+    ccc3 = make_likert5(Lexicon.ccc3Label)
+    ccc4 = make_likert5(Lexicon.ccc4Label)
+    ccc10 = make_likert5(Lexicon.ccc10Label) ## skepticism 7 items
+    ccc11 = make_likert5(Lexicon.ccc11Label)
+    ccc12 = make_likert5(Lexicon.ccc12Label)
+    ccc13 = make_likert5(Lexicon.ccc13Label)
+    ccc14 = make_likert5(Lexicon.ccc14Label)
+    ccc15 = make_likert5(Lexicon.ccc15Label)
+    ccc16 = make_likert5(Lexicon.ccc16Label)
 
     ### Demographics
     age = models.IntegerField(
