@@ -1,0 +1,62 @@
+
+{% block styles %}
+    <link href="{{ static 'global/css/generalStyle.css'}}" rel="stylesheet">
+    <link href="{{ static 'global/css/customStyle.css'}}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Einstellungen zum Klimawandel
+{% endblock %}
+
+
+{% block content %}
+
+<p>Wie sehr stimmen Sie den folgenden Aussagen zu?</p>
+<style>  
+    table.radiotable th, table.radiotable td {
+        padding: 12px;
+        text-align: center;
+        max-width: none; /* No max-width for the entire table */
+    }
+    /* Left-align the first column */
+    table.radiotable th:first-child, table.radiotable td:first-child {
+        text-align: left;
+    }
+    /* Alternating row colors */
+    table.radiotable tr:nth-child(even) {
+        background-color: #c0e3e0;
+    }
+</style>
+<table class="radiotable">
+    <tr> <th></th> <th    class="radio-column">gar nicht</th> <th class="radio-column" > </th class="radio-column"> <th class="radio-column"> </th> <th></th> <th    class="radio-column">sehr stark</th> </tr>
+
+
+   
+    {{ for field in form }}
+        <tr>
+            <th style="font-weight:normal;">{{ field.label }}</th>
+            {{ for choice in field }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    {{ endfor }}
+</table>
+
+
+<div class="next-btn radiotable">  
+    <div style="float: right; padding-top: 2vh;">
+         {% next_button %}
+        
+    </div>
+</div> 
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'global/js/functions.js' %}" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setWidthForTableColumns1();
+        });
+    </script>
+{% endblock %}
