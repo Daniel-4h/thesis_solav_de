@@ -1,0 +1,23 @@
+{% block title %}
+Vignette
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Vignette: {{ current_block }}</h2>
+    <h3>Policy Area: {{ current_policy_area }}</h3>
+    <h4>Framing: {{ current_framing }} - {{ current_political_position }}</h4>
+    <p>
+        <!-- Example content; customize as needed -->
+        This is an example of content for <strong>{{ current_policy_area }}</strong> 
+        under <strong>{{ current_framing }}</strong> framing 
+        with a <strong>{{ current_political_position }}</strong> political position.
+    </p>
+    <div class="next-btn radiotable">  
+        <div style="float: right; padding-top: 2vh;">
+             {% next_button %}
+            
+        </div>
+    </div> 
+</div>
+{% endblock %}

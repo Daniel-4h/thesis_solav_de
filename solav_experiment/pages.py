@@ -25,33 +25,37 @@ class BaseVignettePage(Page):
 
 # Vignette Pages
 class VignettePage1(BaseVignettePage):
-    pass
+    template_name = 'solav_experiment/VignettePage1.html'
 
 class VignettePage2(BaseVignettePage):
-    pass
+    template_name = 'solav_experiment/VignettePage2.html'
 
 class VignettePage3(BaseVignettePage):
-    pass
+    template_name = 'solav_experiment/VignettePage3.html'
 
 class VignettePage4(BaseVignettePage):
-    pass
+    template_name = 'solav_experiment/VignettePage4.html'
 
 # Question Pages
 class QuestionsForVignette1(Page):
     form_model = 'player'
     form_fields = ['question1', 'question2']  # Adapt these fields based on your model
+    template_name = 'solav_experiment/QuestionsVig1.html'
 
 class QuestionsForVignette2(Page):
     form_model = 'player'
     form_fields = ['question3', 'question4']  # Adapt these fields based on your model
+    template_name = 'solav_experiment/QuestionsVig2.html'
 
 class QuestionsForVignette3(Page):
     form_model = 'player'
     form_fields = ['question5', 'question6']  # Adapt these fields based on your model
+    template_name = 'solav_experiment/QuestionsVig3.html'
 
 class QuestionsForVignette4(Page):
     form_model = 'player'
     form_fields = ['question7', 'question8']  # Adapt these fields based on your model
+    template_name = 'solav_experiment/QuestionsVig4.html'
 
 page_sequence = [
     VignettePage1, QuestionsForVignette1,
