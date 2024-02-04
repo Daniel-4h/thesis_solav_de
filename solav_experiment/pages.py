@@ -36,7 +36,6 @@ class QuestionsPage(Page):
         
         # Map policy areas to their question fields, assuming a naming convention
         question_field_map = {
-            #vignette = Lexicon.vignettes[policy_area][framing]
             'PolicyArea1': ['q11', 'q12', 'q13'],
             'PolicyArea2': ['q21', 'q22', 'q23'],
             'PolicyArea3': ['q31', 'q32', 'q33'],
@@ -50,7 +49,6 @@ class VignettePage(BaseVignettePage):
     pass
 
 class QuestionsPage(QuestionsPage):
-    # Here you can override methods if needed, for specific logic per vignette
     pass
 
 page_sequence = [

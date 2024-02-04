@@ -3,6 +3,16 @@ from otree.api import (
 )
 import random
 
+
+from .lexicon import Lexicon
+def make_likert7(label):
+        return models.IntegerField(
+            choices=[1,2,3,4,5,6,7],
+            label=label,
+            widget=widgets.RadioSelect,
+            )
+
+            
 class Constants(BaseConstants):
     name_in_url = 'solav_experiment'
     players_per_group = None
@@ -32,6 +42,7 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
+    '''
     q11 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7], widget=widgets.RadioSelect)
     q12 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7], widget=widgets.RadioSelect)
     q13 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7], widget=widgets.RadioSelect)
@@ -44,3 +55,25 @@ class Player(BasePlayer):
     q41 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7], widget=widgets.RadioSelect)
     q42 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7], widget=widgets.RadioSelect)
     q43 = models.IntegerField(choices=[1, 2, 3, 4, 5, 6, 7], widget=widgets.RadioSelect)
+    '''
+
+    # Questions for Policy Area 1
+    q11 = make_likert7(Lexicon.vignettes["PolicyArea1"]["question1"])
+    q12 = make_likert7(Lexicon.vignettes["PolicyArea1"]["question2"])
+    q13 = make_likert7(Lexicon.vignettes["PolicyArea1"]["question3"])
+    
+    # Questions for Policy Area 2
+    q21 = make_likert7(Lexicon.vignettes["PolicyArea2"]["question1"])
+    q22 = make_likert7(Lexicon.vignettes["PolicyArea2"]["question2"])
+    q23 = make_likert7(Lexicon.vignettes["PolicyArea2"]["question3"])
+    
+    # Questions for Policy Area 3
+    q31 = make_likert7(Lexicon.vignettes["PolicyArea3"]["question1"])
+    q32 = make_likert7(Lexicon.vignettes["PolicyArea3"]["question2"])
+    q33 = make_likert7(Lexicon.vignettes["PolicyArea3"]["question3"])
+    
+    # Questions for Policy Area 4
+    q41 = make_likert7(Lexicon.vignettes["PolicyArea4"]["question1"])
+    q42 = make_likert7(Lexicon.vignettes["PolicyArea4"]["question2"])
+    q43 = make_likert7(Lexicon.vignettes["PolicyArea4"]["question3"])
+    
