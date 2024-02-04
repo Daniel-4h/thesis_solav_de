@@ -4,8 +4,8 @@ from os import environ
 SESSION_CONFIGS = [
     dict(
         name='intro_lex_test',
-        app_sequence=['Intro', 'CCConcern', 'Demographics'],
-        num_demo_participants=100,
+        app_sequence=['Intro', 'solav_experiment', 'CCConcern', 'Demographics'],
+        num_demo_participants=12,
      )
 ]
 

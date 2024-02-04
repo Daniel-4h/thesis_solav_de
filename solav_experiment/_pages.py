@@ -1,46 +1,8 @@
-import random
-from otree.api import *
-
-class Constants(BaseConstants):
-    NAME_IN_URL = 'solav_experiment'
-    name_in_url = 'solav_experiment'
-    NUM_ROUNDS = 4
-    num_rounds = 4
-    players_per_group = None
-    PLAYERS_PER_GROUP = None
-
-class Subsession(BaseSubsession):
-    def CREATING_SESSION(self):
-        print("Calling creating_session")
-        for player in self.get_players():
-            # Randomize block order
-            player.participant.vars['block_order'] = random.sample(['Block1', 'Block2'], 2)
-
-            # Randomize framing order within each block
-            player.participant.vars['framing_order'] = {
-                'Block1': random.sample(['Framing1', 'Framing2'], 2),
-                'Block2': random.sample(['Framing1', 'Framing2'], 2)
-            }
-
-            # Randomize policy areas
-            player.participant.vars['policy_areas'] = {
-                'Block1': random.choice(['PolicyArea1', 'PolicyArea2']),
-                'Block2': 'PolicyArea2' if player.participant.vars['policy_areas']['Block1'] == 'PolicyArea1' else 'PolicyArea1'
-            }
-
-            # Randomize political positioning for each vignette
-            player.participant.vars['political_positioning'] = [random.choice(['Left', 'Right']) for _ in range(4)]
-
-class Group(BaseGroup):
-    pass
-
-class Player(BasePlayer):
-    pass
-
+from otree.api import Page, WaitPage
+from .models import Constants
 
 class BaseVignettePage(Page):
     def vars_for_template(self):
-        print("Calling vars_for_template")
         participant = self.participant
         block_order = participant.vars['block_order']
         framing_order = participant.vars['framing_order']
@@ -97,5 +59,3 @@ page_sequence = [
     VignettePage3, QuestionsForVignette3,
     VignettePage4, QuestionsForVignette4
 ]
-
-# Define your page classes here if needed

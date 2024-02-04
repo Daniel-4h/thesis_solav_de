@@ -1,0 +1,27 @@
+{% block title %}
+    <!--{{Lexicon.information_title}} -->
+    Vignette Display
+{% endblock %}
+
+{% block styles %}
+<link href="{{ static 'global/css/generalStyle.css'}}" rel="stylesheet">
+<link href="{{ static 'global/css/customStyle.css'}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2 class="mb-3">{{ current_block }}, {{ current_policy_area }}, {{ current_framing }}, {{ current_political_position }} - Headline</h2>
+    <p>{{ current_block }}, {{ current_policy_area }}, {{ current_framing }}, {{ current_political_position }} - Content</p>
+
+    <div class="mt-4">
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Proceed to Questions</button>
+        </form>
+    </div>
+</div>
+
+<button style="float: right; margin-top: 2vh;" class="otree-btn-next btn btn-primary" disabled id="consent-next"> {{Lexicon.next}}</button>
+
+{% endblock %}
+
