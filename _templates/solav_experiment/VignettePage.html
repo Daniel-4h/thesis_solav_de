@@ -1,0 +1,13 @@
+{% block content %}
+  <div class="vignette">
+    <h1>{{ headline }}</h1>
+    <p>{{ content }}</p>
+
+    <div class="next-btn radiotable">  
+        <div style="float: right; padding-top: 2vh;">
+             {% next_button %}
+            
+        </div>
+    </div> 
+  </div>
+{% endblock %}

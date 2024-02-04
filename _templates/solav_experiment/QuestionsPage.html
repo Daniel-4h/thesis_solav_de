@@ -1,0 +1,24 @@
+{% block styles %}
+<link href="{{ static 'global/css/generalStyle.css' }}" rel="stylesheet">
+<link href="{{ static 'global/css/customStyle.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Fragen zu Vignetten
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="question">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+          <div class="error">{{ field.errors }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}
