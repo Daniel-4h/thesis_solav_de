@@ -1,0 +1,41 @@
+
+{% extends "global/Page.html" %}
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'global/css/generalStyle.css' %}" rel="stylesheet">
+<link href="{% static 'global/css/customStyle.css' %}" rel="stylesheet">
+<style>
+    .vignette-content {
+        text-align: {{ alignment }};
+    }
+    .right-aligned {
+        text-align: right;
+    }
+    .left-aligned {
+        text-align: left;
+    }
+</style>
+{% endblock %}
+
+{% block title %}
+    {{ block }}
+{% endblock %}
+
+{% block content %}
+<div class="vignette-content {% if alignment == 'Right' %}right-aligned{% else %}left-aligned{% endif %}">
+    <h2>{{ framing }}</h2>
+    <p>{{ vignette_text }}</p>
+</div>
+<div>
+    <!-- Add any other content or questions related to the vignette here -->
+</div>
+
+<div class="next-btn">
+    <button name="next" class="btn btn-primary">Next</button>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'global/js/functions.js' %}"></script>
+{% endblock %}
