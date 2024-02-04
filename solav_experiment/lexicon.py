@@ -1,5 +1,4 @@
 class Lexicon:
-    # Placeholder text for each vignette combination
     vignettes = {
         'Block1': {
             'PolicyArea1': {
@@ -22,6 +21,11 @@ class Lexicon:
                         'headline': "Block 1, Policy area 1, Framing method 2, Political Alignment Right - Headline",
                         'content': "Block 1, Policy area 1, Framing method 2, Political Alignment Right - Content"
                     }
+                },
+                'questions': {
+                    'q1': "Sample question text 1 for Block 1, Policy Area 1",
+                    'q2': "Sample question text 2 for Block 1, Policy Area 1",
+                    'q3': "Sample question text 3 for Block 1, Policy Area 1"
                 }
             },
             'PolicyArea2': {
@@ -44,6 +48,11 @@ class Lexicon:
                         'headline': "Block 1, Policy area 2, Framing method 2, Political Alignment Right - Headline",
                         'content': "Block 1, Policy area 2, Framing method 2, Political Alignment Right - Content"
                     }
+                },
+                'questions': {
+                    'q1': "Sample question text 1 for Block 1, Policy Area 2",
+                    'q2': "Sample question text 2 for Block 1, Policy Area 2",
+                    'q3': "Sample question text 3 for Block 1, Policy Area 2"
                 }
             }
         },
@@ -68,6 +77,11 @@ class Lexicon:
                         'headline': "Block 2, Policy area 3, Framing method 4, Political Alignment Right - Headline",
                         'content': "Block 2, Policy area 3, Framing method 4, Political Alignment Right - Content"
                     }
+                },
+                'questions': {
+                    'q1': "Sample question text 1 for Block 2, Policy Area 3",
+                    'q2': "Sample question text 2 for Block 2, Policy Area 3",
+                    'q3': "Sample question text 3 for Block 2, Policy Area 3"
                 }
             },
             'PolicyArea4': {
@@ -90,8 +104,12 @@ class Lexicon:
                         'headline': "Block 2, Policy area 4, Framing method 4, Political Alignment Right - Headline",
                         'content': "Block 2, Policy area 4, Framing method 4, Political Alignment Right - Content"
                     }
+                },
+                'questions': {
+                    'q1': "Sample question text 1 for Block 2, Policy Area 4",
+                    'q2': "Sample question text 2 for Block 2, Policy Area 4",
+                    'q3': "Sample question text 3 for Block 2, Policy Area 4"
                 }
             }
         }
     }
-    # You can add other variables or methods as needed for your experiment
