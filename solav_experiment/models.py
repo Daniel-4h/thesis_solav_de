@@ -46,19 +46,29 @@ class Player(BasePlayer):
     q11 = make_likert7(Lexicon.vignettes["PolicyArea1"]["question1"])
     q12 = make_likert7(Lexicon.vignettes["PolicyArea1"]["question2"])
     q13 = make_likert7(Lexicon.vignettes["PolicyArea1"]["question3"])
+    q14 = make_likert7(Lexicon.vignettes["PolicyArea1"]["question4"])
+    q15 = make_likert7(Lexicon.vignettes["PolicyArea1"]["question5"])
+
     
     # Questions for Policy Area 2
     q21 = make_likert7(Lexicon.vignettes["PolicyArea2"]["question1"])
     q22 = make_likert7(Lexicon.vignettes["PolicyArea2"]["question2"])
     q23 = make_likert7(Lexicon.vignettes["PolicyArea2"]["question3"])
+    q24 = make_likert7(Lexicon.vignettes["PolicyArea2"]["question4"])
+    q25 = make_likert7(Lexicon.vignettes["PolicyArea2"]["question5"])
+
     
     # Questions for Policy Area 3
     q31 = make_likert7(Lexicon.vignettes["PolicyArea3"]["question1"])
     q32 = make_likert7(Lexicon.vignettes["PolicyArea3"]["question2"])
     q33 = make_likert7(Lexicon.vignettes["PolicyArea3"]["question3"])
-    
+    q34 = make_likert7(Lexicon.vignettes["PolicyArea3"]["question4"])
+    q35 = make_likert7(Lexicon.vignettes["PolicyArea3"]["question5"])
+
+
     # Questions for Policy Area 4
     q41 = make_likert7(Lexicon.vignettes["PolicyArea4"]["question1"])
     q42 = make_likert7(Lexicon.vignettes["PolicyArea4"]["question2"])
     q43 = make_likert7(Lexicon.vignettes["PolicyArea4"]["question3"])
-    
+    q44 = make_likert7(Lexicon.vignettes["PolicyArea4"]["question4"])
+    q45 = make_likert7(Lexicon.vignettes["PolicyArea4"]["question5"])

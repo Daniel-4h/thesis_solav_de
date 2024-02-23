@@ -1,13 +1,16 @@
 from otree.api import Page, WaitPage
 from .models import Constants
 from .lexicon import Lexicon
+import random
 
 class BaseVignettePage(Page):
     def vars_for_template(self):
         current_index = self.round_number - 1
         policy_area, framing = self.participant.vars['policy_framing_pairs'][current_index]
 
-        vignette = Lexicon.vignettes[policy_area][framing]
+        # Randomly choose between 'alignleft' and 'alignright'
+        alignment = random.choice(['alignleft', 'alignright'])
+        vignette = Lexicon.vignettes[policy_area][framing][alignment]
         
         return {
             'headline': vignette['headline'],
@@ -36,10 +39,10 @@ class QuestionsPage(Page):
         
         # Map policy areas to their question fields, assuming a naming convention
         question_field_map = {
-            'PolicyArea1': ['q11', 'q12', 'q13'],
-            'PolicyArea2': ['q21', 'q22', 'q23'],
-            'PolicyArea3': ['q31', 'q32', 'q33'],
-            'PolicyArea4': ['q41', 'q42', 'q43'],
+            'PolicyArea1': ['q11', 'q12', 'q13', 'q14', 'q15'],
+            'PolicyArea2': ['q21', 'q22', 'q23', 'q24', 'q25'],
+            'PolicyArea3': ['q31', 'q32', 'q33', 'q34', 'q35'],
+            'PolicyArea4': ['q41', 'q42', 'q43', 'q44', 'q45'],
         }
         
         return question_field_map[policy_area]
