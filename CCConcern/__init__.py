@@ -17,9 +17,9 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     pass
 
-def make_likert5(label):
+def make_likert6(label):
         return models.IntegerField(
-            choices=[1,2,3,4,5],
+            choices=[1,2,3,4,5,6],
             label=label,
             widget=widgets.RadioSelect,
             )
@@ -27,17 +27,17 @@ def make_likert5(label):
 
 class Player(BasePlayer):
     ### Climate Change Concern Scale by Tobler et al. 2012
-    ccc1 = make_likert5(Lexicon.ccc1Label) ## concern 4 items
-    ccc2 = make_likert5(Lexicon.ccc2Label)
-    ccc3 = make_likert5(Lexicon.ccc3Label)
-    ccc4 = make_likert5(Lexicon.ccc4Label)
-    ccc10 = make_likert5(Lexicon.ccc10Label) ## skepticism 7 items
-    ccc11 = make_likert5(Lexicon.ccc11Label)
-    ccc12 = make_likert5(Lexicon.ccc12Label)
-    ccc13 = make_likert5(Lexicon.ccc13Label)
-    ccc14 = make_likert5(Lexicon.ccc14Label)
-    ccc15 = make_likert5(Lexicon.ccc15Label)
-    ccc16 = make_likert5(Lexicon.ccc16Label)
+    ccc1 = make_likert6(Lexicon.ccc1Label) ## concern 4 items
+    ccc2 = make_likert6(Lexicon.ccc2Label)
+    ccc3 = make_likert6(Lexicon.ccc3Label)
+    ccc4 = make_likert6(Lexicon.ccc4Label)
+    #ccc10 = make_likert6(Lexicon.ccc10Label) ## skepticism 7 items
+    #ccc11 = make_likert6(Lexicon.ccc11Label)
+    #ccc12 = make_likert6(Lexicon.ccc12Label)
+    #ccc13 = make_likert6(Lexicon.ccc13Label)
+    #ccc14 = make_likert6(Lexicon.ccc14Label)
+    #ccc15 = make_likert6(Lexicon.ccc15Label)
+    #ccc16 = make_likert6(Lexicon.ccc16Label)
 
 
 
@@ -46,12 +46,21 @@ class Player(BasePlayer):
 # FUNCTIONS
 # PAGES
 
-class CCConcern(Page):
+class CCCIntro(Page):
     form_model = 'player'
-    form_fields= ['ccc1', 'ccc2', 'ccc3', 'ccc4',  'ccc10', 'ccc11', 'ccc12', 'ccc13', 'ccc14', 'ccc15', 'ccc16'  ]
+    form_fields= []
     @staticmethod
     def vars_for_template(player: Player):
-        return dict(Lexicon=Lexicon)    
+        return dict(Lexicon=Lexicon)   
 
-
-page_sequence = [CCConcern]
+class CCConcern(Page):
+    form_model = 'player'
+    form_fields= [
+        'ccc1', 'ccc2', 'ccc3', 'ccc4', 
+        #'ccc10', 'ccc11', 'ccc12', 'ccc13', 'ccc14', 'ccc15', 'ccc16'
+        ]
+    @staticmethod
+    def vars_for_template(player: Player):
+        return dict(Lexicon=Lexicon)
+    
+page_sequence = [CCCIntro, CCConcern]

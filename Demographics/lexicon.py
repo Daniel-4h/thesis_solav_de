@@ -2,11 +2,11 @@ class Lexicon:
     ### Political Orientation
     po_title = "Politische Einstellung"
     po_intro = "Viele Menschen benutzen die Ausdrücke “links” und “rechts”, wenn sie verschiedene politische Positionen beschreiben wollen."
-    po1Label = "Wenn Sie an Ihre eigene politische Einstellung denken, wo würden Sie sich auf der untenstehenden Skala einordnen?"
+    po1Label = "Wenn Sie an Ihre eigene politische Einstellung denken, wo würden Sie sich auf dieser Skala einordnen?"
 
     ### Demographics
     demographics_title = "Persönliche Daten"
-    demographics_header = "Bitte geben Sie die folgenden Informationen über sich ein."
+    demographics_header = "Bitte geben Sie abschließend die folgenden Informationen über sich ein."
 
     age_label = "Wie alt sind Sie?"
     gender_label = "Welchem Geschlecht fühlen Sie sich zugehörig?"

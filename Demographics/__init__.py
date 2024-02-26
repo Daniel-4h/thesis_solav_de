@@ -143,6 +143,4 @@ class Honesty(Page):
         return dict(Lexicon=Lexicon)
 
 
-
-
 page_sequence = [PolOrientation, Demographics, Honesty]
