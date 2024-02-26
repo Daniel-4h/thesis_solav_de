@@ -33,7 +33,20 @@ class Consent(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return dict(Lexicon=Lexicon)
+    
 
+class Instructions(Page):
+    form_model = 'player'
+    form_fields = []
+    @staticmethod
+    def vars_for_template(player: Player):
+        return dict(Lexicon=Lexicon)
+    
+class Introduction_SolAv(Page):
+    form_model = 'player'
+    form_fields = []
+    @staticmethod
+    def vars_for_template(player: Player):
+        return dict(Lexicon=Lexicon)
 
-
-page_sequence = [Consent]
+page_sequence = [Consent, Instructions, Introduction_SolAv]

@@ -1,16 +1,6 @@
 class Lexicon:
     information_title = 'Informationen zu dieser Studie'
-    instructions = 'Instruktionen'
-    no = 'Nein'
-    results = 'Ergebnis'
-    round_number = 'Runde'
-    start = 'Start'
-    stop = 'Stopp'
-    yes = 'Yes'
-    your_decision = 'Ihre Entscheidung'
-    not_at_all = 'überhaupt nicht'
-    very_much = 'sehr stark'
-    next = 'Weiter'
+    next = "Weiter"
 
     #Consent Text
     consent_p1 ='Vielen Dank für Ihr Interesse, an dieser Studie teilzunehmen. <br> Diese Studie wird im Rahmen einer Abschlussarbeit unter der Leitung von Prof. Ulf J.J. Hahnel und Zahra Rahmani, Fakultät für Psychologie, Universität Basel, Schweiz, von Daniel Ahrndsen, Student der Psychologie, durchgeführt.'

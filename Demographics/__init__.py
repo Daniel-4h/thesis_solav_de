@@ -27,7 +27,7 @@ def make_likert11(label):
 class Player(BasePlayer):
 
     ### Pol Orientation
-    po1 = make_likert11(Lexicon.po1Label) ## concern 4 items
+    po1 = make_likert11(Lexicon.po1Label)
 
 
     ### Demographics
@@ -74,9 +74,27 @@ class Player(BasePlayer):
         choices=[Lexicon.metropolitan_area, Lexicon.suburban, Lexicon.rural],
     )
 
-    zip_code = models.StringField(
-        label=Lexicon.zip_code_label,
-        blank=True,
+
+    region = models.StringField(
+        label="Aus welchem Bundesland kommen Sie?",
+        choices=[    
+            "Baden-Württemberg",
+            "Bayern",
+            "Berlin",
+            "Brandenburg",
+            "Bremen",
+            "Hamburg",
+            "Hessen",
+            "Mecklenburg-Vorpommern",
+            "Niedersachsen",
+            "Nordrhein-Westfalen",
+            "Rheinland-Pfalz",
+            "Saarland",
+            "Sachsen-Anhalt",
+            "Sachsen",
+            "Schleswig-Holstein",
+            "Thüringen" 
+        ],
     )
 
     party_affiliation = models.StringField(
@@ -88,17 +106,18 @@ class Player(BasePlayer):
             Lexicon.fdp,
             Lexicon.linke,
             Lexicon.afd,
+            Lexicon.bsw,
+            Lexicon.fw,
+            Lexicon.wu,
             Lexicon.other_party
         ],
     )
 
-    age = models.IntegerField(label='What is your age?', min=13, max=125)
-    gender = models.StringField(
-        choices=[['Male', 'Male'], ['Female', 'Female']],
-        label='What is your gender?',
-        widget=widgets.RadioSelect,
+    use_data = models.IntegerField(
+        label = "Können wir Ihre Antworten für unsere Studie berücksichtigen?",
+        choices=[1,0],
+        widget=widgets.RadioSelect
     )
-
 
 # FUNCTIONS
 # PAGES
@@ -111,7 +130,14 @@ class PolOrientation(Page):
 
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['age', 'gender', 'income', 'education', 'residential_area', 'zip_code', 'party_affiliation']
+    form_fields = ['age', 'gender', 'income', 'education', 'residential_area', 'region', 'party_affiliation']
+    @staticmethod
+    def vars_for_template(player: Player):
+        return dict(Lexicon=Lexicon)
+    
+class Honesty(Page):
+    form_model = 'player'
+    form_fields = ['use_data']
     @staticmethod
     def vars_for_template(player: Player):
         return dict(Lexicon=Lexicon)
@@ -119,4 +145,4 @@ class Demographics(Page):
 
 
 
-page_sequence = [PolOrientation, Demographics]
+page_sequence = [PolOrientation, Demographics, Honesty]

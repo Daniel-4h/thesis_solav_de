@@ -4,33 +4,28 @@
     <link href="{{ static 'global/css/customStyle.css'}}" rel="stylesheet">
 {% endblock %}
 
-{% block title %}
-    {{ Lexicon.po_title }}
-{% endblock %}
+{% block title %}Hand aufs Herz...{% endblock %}
+
 
 {% block content %}
 
-<p>{{ Lexicon.po_header }}</p>
+<p>Direkt gefragt: Haben Sie diese Studie aufmerksam und ernsthaft bearbeitet? Bitte seien Sie ehrlich: Wie sie antworten hat keinen Einfluss auf Ihre Entschädigung, aber es ist sehr wichtig für unsere Arbeit:</p>
 
 <table class="radiotable">
-    <tr>
-        <th></th>
-        <th class="radio-column">{{ Lexicon.strongly_liberal }}</th>
-        <th class="radio-column">{{ Lexicon.somewhat_liberal }}</th>
-        <th class="radio-column">{{ Lexicon.moderate }}</th>
-        <th class="radio-column">{{ Lexicon.somewhat_conservative }}</th>
-        <th class="radio-column">{{ Lexicon.strongly_conservative }}</th>
-    </tr>
+    <tr> <th></th> <th    class="radio-column">Ja</th> <th class="radio-column" >Nein</th class="radio-column"></tr>
 
-    {% for field in form %}
+
+   
+    {{ for field in form }}
         <tr>
             <th style="font-weight:normal;">{{ field.label }}</th>
-            {% for choice in field %}
+            {{ for choice in field }}
                 <td>{{ choice }}</td>
-            {% endfor %}
+            {{ endfor }}
         </tr>
-    {% endfor %}
+    {{ endfor }}
 </table>
+
 
 <div class="next-btn radiotable">  
     <div style="float: right; padding-top: 2vh;">
@@ -38,6 +33,7 @@
         
     </div>
 </div> 
+
 {% endblock %}
 
 {% block scripts %}

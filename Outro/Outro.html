@@ -1,0 +1,36 @@
+{% block title %}Vielen Dank!{% endblock %}
+
+{% block styles %}
+<link href="{{ static 'global/css/generalStyle.css'}}" rel="stylesheet">
+<link href="{{ static 'global/css/customStyle.css'}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div>
+
+  <p>Die Studie ist nun beendet. Danke für Ihre Teilnahme. Ihre Angaben wurden gespeichert. Sie können dieses Fenster nun schließen.</p>
+
+  <p>Infos zur Vergütung?</p>
+
+  <p>Mit dieser Studie wollen wir ergründen, wie Menschen mit politischen Vorschlägen umgehen und wie das mit ihrer Einstellung zum Klimawandel zusammenhängt. Wollen Sie nach Abschluss der Studie per Mail genauere Informationen über die Ergebnisse erhalten? Dann tragen Sie sich gerne in den entsprechenden Verteiler ein. Der untenstehende Link führt Sie zu einem entsprechenden Formular auf einer anderen Webseite. So ist sichergestellt, dass Ihre Daten nicht mit Ihrer Person in Verbindung gebracht werden können.</p>
+
+  <p><a href="" target="_blank">Zum Formular.</a>
+  </p>
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'global/js/functions.js' %}" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setWidthForTableColumns1();
+        });
+    </script>
+{% endblock %}
