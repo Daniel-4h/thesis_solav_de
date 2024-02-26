@@ -77,23 +77,23 @@ class Player(BasePlayer):
 
     region = models.StringField(
         label="Aus welchem Bundesland kommen Sie?",
-        choices=[    
-            "Baden-Württemberg",
-            "Bayern",
-            "Berlin",
-            "Brandenburg",
-            "Bremen",
-            "Hamburg",
-            "Hessen",
-            "Mecklenburg-Vorpommern",
-            "Niedersachsen",
-            "Nordrhein-Westfalen",
-            "Rheinland-Pfalz",
-            "Saarland",
-            "Sachsen-Anhalt",
-            "Sachsen",
-            "Schleswig-Holstein",
-            "Thüringen" 
+        choices=[
+            Lexicon.bw,
+            Lexicon.by,
+            Lexicon.be,
+            Lexicon.br,
+            Lexicon.hb,
+            Lexicon.hh,
+            Lexicon.he,
+            Lexicon.mp,
+            Lexicon.ns,
+            Lexicon.nw,
+            Lexicon.rp,
+            Lexicon.sl,
+            Lexicon.sa,
+            Lexicon.sx,
+            Lexicon.sh,
+            Lexicon.th
         ],
     )
 
