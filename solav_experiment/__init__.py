@@ -84,25 +84,6 @@ class BaseVignettePage(Page):
             'content': vignette['content'],
         }
 
-'''
-    @staticmethod
-    
-    def get_policy_area_and_framing(player: Player):
-        participant = player.participant
-        round_number = player.round_number
-        if round_number in [1, 3]:
-            policy_area = participant.vars[
-                'policy_areas' if round_number == 1 else 'policy_areas_34'
-            ][0]
-            framing = participant.vars['framings' if round_number == 1 else 'framings_34'][0]
-        else:  # For rounds 2 and 4, swap policy areas and framings
-            policy_area = participant.vars[
-                'policy_areas' if round_number == 2 else 'policy_areas_34'
-            ][1]
-            framing = participant.vars['framings' if round_number == 2 else 'framings_34'][1]
-        return policy_area, framing
-    '''
-
 class QuestionsPage(Page):
     form_model = 'player'
 
