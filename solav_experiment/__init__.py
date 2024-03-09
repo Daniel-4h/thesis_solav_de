@@ -97,98 +97,7 @@ def creating_session(subsession: Subsession):
         # Assign the policy framing to participant vars
         player.participant.vars['policy_framing'] = randomized_selection
     
-'''
-    # random yes, but no counterbalancing for framing direction
-    players = subsession.get_players()
-    
-    # Preset pairings according to your requirement
-    pairings_1_2 = [('Framing1', 'Framing2'), ('Framing2', 'Framing1')]
-    pairings_3_4 = [('Framing3', 'Framing4'), ('Framing4', 'Framing3')]
-    directions = ['left', 'right']
-    
-    # Generate all valid combinations for framings with directions
-    # This step ensures each framing-direction pair is available
-    combinations_1_2 = [(pair[0], d1, pair[1], d2) for pair in pairings_1_2 for d1 in directions for d2 in directions]
-    combinations_3_4 = [(pair[0], d1, pair[1], d2) for pair in pairings_3_4 for d1 in directions for d2 in directions]
-    
-    # Shuffle combinations to ensure randomness
-    random.shuffle(combinations_1_2)
-    random.shuffle(combinations_3_4)
-    
-    for i, player in enumerate(players):
-        # Select one combination for policy areas 1 and 2, and one for 3 and 4
-        selection_1_2 = combinations_1_2[i % len(combinations_1_2)]
-        selection_3_4 = combinations_3_4[i % len(combinations_3_4)]
-        
-        # Assign the selections ensuring the strict pairing
-        policy_framing = [
-            ('PolicyArea1', selection_1_2[0:2]), # Framing and direction for Policy Area 1
-            ('PolicyArea2', selection_1_2[2:4]), # Framing and direction for Policy Area 2
-            ('PolicyArea3', selection_3_4[0:2]), # Framing and direction for Policy Area 3
-            ('PolicyArea4', selection_3_4[2:4]), # Framing and direction for Policy Area 4
-        ]
-        
-        # Shuffle to randomize the order for each player
-        random.shuffle(policy_framing)
-        
-        # Assign the policy framing to participant vars
-        player.participant.vars['policy_framing'] = policy_framing
 
-
-# random yes, but framings for pol area 2 unconditional on framings for pol area 1 
-    players = subsession.get_players()
-
-    # Define unique framings for each set of policy areas
-    framings_1_2 = ['Framing1', 'Framing2']
-    framings_3_4 = ['Framing3', 'Framing4']
-    directions = ['left', 'right']
-    
-    # Generate all valid combinations for framings 1 and 2, and 3 and 4, each with directions
-    combinations_1_2 = [(f, d) for f in framings_1_2 for d in directions]
-    combinations_3_4 = [(f, d) for f in framings_3_4 for d in directions]
-    
-    # Ensure each player gets a unique combination
-    # Shuffle combinations to ensure randomness
-    random.shuffle(combinations_1_2)
-    random.shuffle(combinations_3_4)
-    
-    for i, player in enumerate(players):
-        # Select one combination for policy areas 1 and 2, and one for 3 and 4
-        # This selection ensures that each policy area gets framing with both left and right across participants
-        selection_1_2 = combinations_1_2[i % len(combinations_1_2)]
-        selection_3_4 = combinations_3_4[i % len(combinations_3_4)]
-        
-        # Map selections to specific policy areas, ensuring correct pairing
-        policy_framing = [
-            ('PolicyArea1', selection_1_2),
-            ('PolicyArea2', selection_1_2),
-            ('PolicyArea3', selection_3_4),
-            ('PolicyArea4', selection_3_4),
-        ]
-        
-        # Shuffle to randomize the order for each player
-        random.shuffle(policy_framing)
-        
-        # Assign the policy framing to participant vars
-        player.participant.vars['policy_framing'] = policy_framing
-
-
-def creating_session(subsession: Subsession):
-    for player in subsession.get_players():
-        # Randomly decide the framing for Policy Areas 1 and 2, and similarly for 3 and 4
-        framing_1_2 = random.sample(['Framing1', 'Framing2'], 2)
-        framing_3_4 = random.sample(['Framing3', 'Framing4'], 2)
-        # Pair policy areas with their framings
-        policy_framing_pairs = [
-            ('PolicyArea1', framing_1_2[0]),
-            ('PolicyArea2', framing_1_2[1]),
-            ('PolicyArea3', framing_3_4[0]),
-            ('PolicyArea4', framing_3_4[1]),
-        ]
-        # Randomize the order of policy areas while keeping the framing rules
-        random.shuffle(policy_framing_pairs)
-        player.participant.vars['policy_framing_pairs'] = policy_framing_pairs
-'''
 
 # PAGES
 class BaseVignettePage(Page):
@@ -202,20 +111,6 @@ class BaseVignettePage(Page):
             'headline': vignette['headline'],
             'content': vignette['content']
         }
-    
-    '''
-    @staticmethod
-    def vars_for_template(player: Player):
-        current_index = player.round_number - 1
-        policy_area, framing = player.participant.vars['policy_framing_pairs'][current_index]
-        # Randomly choose between 'alignleft' and 'alignright'
-        alignment = random.choice(['right', 'left'])
-        vignette = Lexicon.vignettes[policy_area][framing][alignment]
-        return {
-            'headline': vignette['headline'],
-            'content': vignette['content'],
-        }
-    '''
 
 class QuestionsPage(Page):
     form_model = 'player'
@@ -232,20 +127,6 @@ class QuestionsPage(Page):
         }
         
         return question_field_map[policy_area]
-    
-    '''
-    def get_form_fields(player: Player):
-        current_index = player.round_number - 1
-        policy_area, framing = player.participant.vars['policy_framing_pairs'][current_round]
-        # Map policy areas to their question fields, assuming a naming convention
-        question_field_map = {
-            'PolicyArea1': ['pol_evehic1', 'pol_evehic2', 'pol_evehic3', 'pol_evehic4', 'pol_evehic5'],
-            'PolicyArea2': ['pol_energy1', 'pol_energy2', 'pol_energy3', 'pol_energy4', 'pol_energy5'],
-            'PolicyArea3': ['pol_co2tax1', 'pol_co2tax2', 'pol_co2tax3', 'pol_co2tax4', 'pol_co2tax5'],
-            'PolicyArea4': ['pol_bldins1', 'pol_bldins2', 'pol_bldins3', 'pol_bldins4', 'pol_bldins5'],
-        }
-        return question_field_map[policy_area]
-    '''
 
 class VignettePage(BaseVignettePage):
     pass
