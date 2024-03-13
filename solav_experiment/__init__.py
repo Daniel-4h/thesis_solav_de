@@ -78,7 +78,6 @@ def creating_session(subsession: Subsession):
         combinations_3_4.append([('PolicyArea3', 'Framing3', lr_3_4[0]), ('PolicyArea4', 'Framing4', lr_3_4[1])])
         combinations_3_4.append([('PolicyArea3', 'Framing4', lr_3_4[0]), ('PolicyArea4', 'Framing3', lr_3_4[1])])
     
-    # Combine and filter combinations to exclude those in which all left or all right
     all_possible_combinations = [comb_1_2 + comb_3_4 for comb_1_2 in combinations_1_2 for comb_3_4 in combinations_3_4]
 
     for i, player in enumerate(players):
