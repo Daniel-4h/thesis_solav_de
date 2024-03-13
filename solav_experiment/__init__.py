@@ -60,33 +60,44 @@ class Player(BasePlayer):
 def creating_session(subsession: Subsession):
     players = subsession.get_players()
     
+    framing_methods = ['Framing1', 'Framing2', 'Framing3', 'Framing4']
     directions = ['left', 'right']
+    all_combinations = list(itertools.product(directions, repeat=4))
     
-    # Generate all possible left/right combinations
-    lr_combinations_1_2 = [p for p in itertools.product(directions, repeat=2)]
-    lr_combinations_3_4 = [p for p in itertools.product(directions, repeat=2)]
+    combinations_by_right_count = {i: [] for i in range(5)}
+    for combo in all_combinations:
+        right_count = combo.count('right')
+        combinations_by_right_count[right_count].append(combo)
     
-    # create specific combinations for Framing 1 & 2 and Framing 3 & 4 tied to their policy areas
-    combinations_1_2 = []
-    combinations_3_4 = []
+    final_combinations = []
+    for right_count, combos in combinations_by_right_count.items():
+        repeats = 12 // len(combos)
+        for combo in combos:
+            final_combinations.extend([combo] * repeats)
     
-    for lr_1_2 in lr_combinations_1_2:
-        combinations_1_2.append([('PolicyArea1', 'Framing1', lr_1_2[0]), ('PolicyArea2', 'Framing2', lr_1_2[1])])
-        combinations_1_2.append([('PolicyArea1', 'Framing2', lr_1_2[0]), ('PolicyArea2', 'Framing1', lr_1_2[1])])
+    final_combinations_with_methods = [
+        [(framing_methods[i], direction) for i, direction in enumerate(combo)]
+        for combo in final_combinations
+    ]
     
-    for lr_3_4 in lr_combinations_3_4:
-        combinations_3_4.append([('PolicyArea3', 'Framing3', lr_3_4[0]), ('PolicyArea4', 'Framing4', lr_3_4[1])])
-        combinations_3_4.append([('PolicyArea3', 'Framing4', lr_3_4[0]), ('PolicyArea4', 'Framing3', lr_3_4[1])])
+    policy_areas_1_2 = ['PolicyArea1', 'PolicyArea2']
+    policy_areas_3_4 = ['PolicyArea3', 'PolicyArea4']
     
-    all_possible_combinations = [comb_1_2 + comb_3_4 for comb_1_2 in combinations_1_2 for comb_3_4 in combinations_3_4]
-
     for i, player in enumerate(players):
-        selection = all_possible_combinations[i % len(all_possible_combinations)]
+        combination = final_combinations_with_methods[i % len(final_combinations_with_methods)]
         
-        # Shuffle to randomize the order for each player
-        randomized_selection = random.sample(selection, len(selection))
+        random_policy_areas_1_2 = random.sample(policy_areas_1_2, len(policy_areas_1_2))
+        random_policy_areas_3_4 = random.sample(policy_areas_3_4, len(policy_areas_3_4))
         
-        # Assign the policy framing to participant vars
+        updated_combination = []
+        for fm, direction in combination:
+            if 'Framing1' in fm or 'Framing2' in fm:
+                policy_area = random_policy_areas_1_2.pop(0)
+            else:
+                policy_area = random_policy_areas_3_4.pop(0)
+            updated_combination.append((policy_area, fm, direction))
+
+        randomized_selection = random.sample(updated_combination, len(updated_combination))
         player.participant.vars['policy_framing'] = randomized_selection
 
 # PAGES
