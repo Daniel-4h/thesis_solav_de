@@ -15,7 +15,7 @@ class Lexicon:
     diverse = "Divers"
     other = "Andere"
 
-    income_label = "Was ist Ihr jährliches Einkommen?"
+    income_label = "Wie hoch ist Ihr jährliches Nettoeinkommen?"
     income_less_than_A = "Weniger als 16.000 €"
     income_A_to_B = "16.001 € - 22.000 €"
     income_B_to_C = "22.001 € - 28.000 €"
@@ -31,8 +31,8 @@ class Lexicon:
     higher_secondary_school = "Mittlere Reife"
     vocational_training = "Berufsausbildung"
     high_school = "Abitur"
-    college_degree = "Hochschulabschluss - Bachelor"
-    master_degree = "Hochschulabschluss - Master"
+    college_degree = " Hochschulabschluss - Bachelor"
+    master_degree = " Hochschulabschluss - Master"
     doctoral_degree = "Promotion"
     prefer_not_to_say_education = "Keine Angabe"
 

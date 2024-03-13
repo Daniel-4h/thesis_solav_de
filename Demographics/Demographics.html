@@ -11,6 +11,41 @@ Persönliche Daten
 
 <p>Bitte geben Sie die folgenden Informationen über sich ein.</p>
 
+<style>  
+    table.radiotable th, table.radiotable td {
+        text-align: left;
+        width: 90%;
+    }
+    /* Left-align the first column */
+    table.radiotable th:first-child, table.radiotable td:first-child {
+        text-align: center;
+        min-width: 10%;
+        max-width: 10%;
+    }
+    /* Alternating row colors */
+    table.radiotable tr:nth-child(even) {
+        background-color: #c0e3e0;
+    }
+</style>
+
+{{ for field in form }}
+    <div>
+        <hr>
+        <label style="font-weight: bold;">{{ field.label }}</label>
+        <table class="radiotable">
+            {{ for choice in field }}
+            <tr>
+                <td>{{ choice }}</td>
+                <td>{{ choice.label }}</td>
+            </tr>
+            {{ endfor }}
+        </table>
+    </div>
+{{ endfor }}
+
+
+
+<!--
 <form method="post">
     {% for field in form %}
         <div>
@@ -19,7 +54,7 @@ Persönliche Daten
         </div>
     {% endfor %}
 </form>
-
+-->
 
 <div class="next-btn radiotable">  
     <div style="float: right; padding-top: 2vh;">
@@ -27,6 +62,8 @@ Persönliche Daten
         
     </div>
 </div> 
+
 {% endblock %}
+
 
 

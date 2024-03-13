@@ -14,11 +14,13 @@
     table.radiotable th, table.radiotable td {
         padding: 12px;
         text-align: center;
-        max-width: none; /* No max-width for the entire table */
+        min-width: 6ch;
+        max-width: 6ch;
     }
     /* Left-align the first column */
     table.radiotable th:first-child, table.radiotable td:first-child {
         text-align: left;
+        max-width: none;
     }
     /* Alternating row colors */
     table.radiotable tr:nth-child(even) {
@@ -26,7 +28,15 @@
     }
 </style>
 <table class="radiotable">
-    <tr> <th></th> <th    class="radio-column">gar nicht</th> <th class="radio-column" > </th class="radio-column"> <th class="radio-column"> </th> <th></th> <th></th><th></th><th    class="radio-column">sehr stark</th> </tr>
+    <tr> 
+        <th></th>
+        <th class="radio-column">gar nicht</th>
+        <th class="radio-column" ></th>
+        <th class="radio-column"> </th>
+        <th class="radio-column"></th>
+        <th class="radio-column"></th>
+        <th class="radio-column">sehr stark</th>
+    </tr>
 
 
    

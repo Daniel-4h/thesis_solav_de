@@ -16,31 +16,41 @@ Einstellungen zum Klimawandel
     table.radiotable th, table.radiotable td {
         padding: 12px;
         text-align: center;
-        max-width: none; /* No max-width for the entire table */
+        min-width: 16.5%;
+        max-width: 16.5%;
     }
     /* Left-align the first column */
     table.radiotable th:first-child, table.radiotable td:first-child {
-        text-align: left;
+        text-align: center;
+        min-width: 16.5%;
+        max-width: 16.5%;
     }
     /* Alternating row colors */
     table.radiotable tr:nth-child(even) {
         background-color: #c0e3e0;
     }
 </style>
-<table class="radiotable">
-    <tr> <th></th> <th    class="radio-column">gar nicht</th> <th class="radio-column" > </th class="radio-column"> <th class="radio-column"> </th> <th></th> <th></th><th    class="radio-column">sehr stark</th> </tr>
-
-
    
     {{ for field in form }}
+    <hr>
+    {{ field.label }}
+    <table class="radiotable">
         <tr>
-            <th style="font-weight:normal;">{{ field.label }}</th>
+            <th class="radio-column">gar nicht</th>
+            <th class="radio-column"></th>
+            <th class="radio-column"></th>
+            <th class="radio-column"></th>
+            <th class="radio-column"></th>
+            <th class="radio-column">sehr stark</th> 
+        </tr>
+        <tr>
             {{ for choice in field }}
                 <td>{{ choice }}</td>
             {{ endfor }}
         </tr>
+    </table>
     {{ endfor }}
-</table>
+
 
 
 <div class="next-btn radiotable">  
@@ -52,11 +62,4 @@ Einstellungen zum Klimawandel
 
 {% endblock %}
 
-{% block scripts %}
-    <script src="{% static 'global/js/functions.js' %}" defer></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            setWidthForTableColumns1();
-        });
-    </script>
-{% endblock %}
+
