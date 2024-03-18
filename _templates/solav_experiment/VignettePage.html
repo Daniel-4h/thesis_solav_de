@@ -1,18 +1,75 @@
-{% block title %}Vorschlag {{ round_number }} von 4{% endblock %}
+{% block styles %}
+<link href="{{ static 'global/css/generalStyle.css' }}" rel="stylesheet">
+<link href="{{ static 'global/css/customStyle.css' }}" rel="stylesheet">
+
+<style>  
+  table.radiotable th, table.radiotable td {
+      padding: 12px;
+      text-align: center;
+      min-width: 6ch;
+      max-width: 6ch;
+  }
+  /* Left-align the first column */
+  table.radiotable th:first-child, table.radiotable td:first-child {
+      text-align: left;
+      max-width: none;
+  }
+  /* Alternating row colors */
+  table.radiotable tr:nth-child(even) {
+      background-color: #c0e3e0;
+  }
+</style>
+{% endblock %}
+
+{% block title %}Vorschlag {{ round_number }} von 5{% endblock %}
 {% block content %}
-<p><i>Bitte lesen die den untenstehenden Vorschlag aufmerksam. <br>Auf der nächsten Seite werden wir Sie bitten, einige Fragen zu diesem Vorschlag zu beantworten.</i></p>
+<p><i>Bitte lesen die den untenstehenden Vorschlag aufmerksam und beantworten Sie anschließend einige Fragen.</i></p>
 <hr>
 
 
   <div class="vignette">
-    <h3>{{ headline }}</h1>
+    <h3>{{ headline }}</h3>
     <p>{{ content }}</p>
-
-    <div class="next-btn radiotable">  
-        <div style="float: right; padding-top: 2vh;">
-             {% next_button %}
-            
-        </div>
-    </div> 
   </div>
+
+<hr>
+
+<h3>Wie sehr stimmen Sie den folgenden Aussagen zu?</h3>
+
+<form method="post">
+
+<p></p>
+
+
+<table class="radiotable">
+    <tr> 
+        <th></th>
+        <th class="radio-column">gar nicht</th>
+        <th class="radio-column" ></th>
+        <th class="radio-column"> </th>
+        <th class="radio-column"></th>
+        <th class="radio-column"></th>
+        <th class="radio-column">sehr stark</th>
+    </tr>
+
+
+   
+    {% for field in form %}
+        <tr>
+            <th style="font-weight:normal;">{{ field.label }}</th>
+            {{ for choice in field }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    {{ endfor }}
+</table>
+
+
+<div class="next-btn radiotable">  
+    <div style="float: right; padding-top: 2vh;">
+         {% next_button %}
+        
+    </div>
+</div> 
+
 {% endblock %}

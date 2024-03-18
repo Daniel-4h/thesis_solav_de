@@ -1,4 +1,4 @@
-{% block title %}Bitte versetzen Sie sich in die folgende Situation...{% endblock %}
+{% block title %} {% endblock %}
 
 {% block styles %}
 <link href="{{ static 'global/css/generalStyle.css'}}" rel="stylesheet">
@@ -9,20 +9,14 @@
 
 <div>
 
-  <p>In der deutschen Klimapolitik werden viele verschiedene politische Maßnahmen diskutiert.</p>
-
-  <p>Im Folgenden zeigen wir Ihnen einige klimapolitische Vorschläge. Bitte lesen Sie sie aufmerksam und beantworten Sie anschließend jeweils einige Fragen.</p>
+  <p>Sie sind durchgefallen!
+    Sie werden automatisch zurückgeleitet. 
+  </p>
 
 </div>
 
-<button style="float: right; margin-top: 2vh;" class="otree-btn-next btn btn-primary"> {{Lexicon.next}}</button>
-
-
-
 
 {% endblock %}
-
-
 
 {% block scripts %}
     <script src="{% static 'global/js/functions.js' %}" defer></script>

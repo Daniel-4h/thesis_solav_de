@@ -13,46 +13,54 @@ def make_likert6(label):
 class C(BaseConstants):
     NAME_IN_URL = 'solav_experiment'
     PLAYERS_PER_GROUP = None
-    NUM_ROUNDS = 4
+    NUM_ROUNDS = 5
 
 class Subsession(BaseSubsession):
     pass
-    
 
 class Group(BaseGroup):
     pass
 
-
 class Player(BasePlayer):
     # Questions for Policy Area 1
-    pol_evehic1 = make_likert6(Lexicon.vignettes["PolicyArea1"]["question1"])
-    pol_evehic2 = make_likert6(Lexicon.vignettes["PolicyArea1"]["question2"])
-    pol_evehic3 = make_likert6(Lexicon.vignettes["PolicyArea1"]["question3"])
-    pol_evehic4 = make_likert6(Lexicon.vignettes["PolicyArea1"]["question4"])
-    pol_evehic5 = make_likert6(Lexicon.vignettes["PolicyArea1"]["question5"])
+    pol_evehic1 = make_likert6(Lexicon.vignettes["pol_evehic"]["question1"])
+    pol_evehic2 = make_likert6(Lexicon.vignettes["pol_evehic"]["question2"])
+    pol_evehic3 = make_likert6(Lexicon.vignettes["pol_evehic"]["question3"])
+    pol_evehic4 = make_likert6(Lexicon.vignettes["pol_evehic"]["question4"])
+    pol_evehic5 = make_likert6(Lexicon.vignettes["pol_evehic"]["question5"])
     # Questions for Policy Area 2
-    pol_energy1 = make_likert6(Lexicon.vignettes["PolicyArea2"]["question1"])
-    pol_energy2 = make_likert6(Lexicon.vignettes["PolicyArea2"]["question2"])
-    pol_energy3 = make_likert6(Lexicon.vignettes["PolicyArea2"]["question3"])
-    pol_energy4 = make_likert6(Lexicon.vignettes["PolicyArea2"]["question4"])
-    pol_energy5 = make_likert6(Lexicon.vignettes["PolicyArea2"]["question5"])
+    pol_energy1 = make_likert6(Lexicon.vignettes["pol_energy"]["question1"])
+    pol_energy2 = make_likert6(Lexicon.vignettes["pol_energy"]["question2"])
+    pol_energy3 = make_likert6(Lexicon.vignettes["pol_energy"]["question3"])
+    pol_energy4 = make_likert6(Lexicon.vignettes["pol_energy"]["question4"])
+    pol_energy5 = make_likert6(Lexicon.vignettes["pol_energy"]["question5"])
     # Questions for Policy Area 3
-    pol_bldins1 = make_likert6(Lexicon.vignettes["PolicyArea4"]["question1"])
-    pol_bldins2 = make_likert6(Lexicon.vignettes["PolicyArea4"]["question2"])
-    pol_bldins3 = make_likert6(Lexicon.vignettes["PolicyArea4"]["question3"])
-    pol_bldins4 = make_likert6(Lexicon.vignettes["PolicyArea4"]["question4"])
-    pol_bldins5 = make_likert6(Lexicon.vignettes["PolicyArea4"]["question5"])
+    pol_bldins1 = make_likert6(Lexicon.vignettes["pol_bldins"]["question1"])
+    pol_bldins2 = make_likert6(Lexicon.vignettes["pol_bldins"]["question2"])
+    pol_bldins3 = make_likert6(Lexicon.vignettes["pol_bldins"]["question3"])
+    pol_bldins4 = make_likert6(Lexicon.vignettes["pol_bldins"]["question4"])
+    pol_bldins5 = make_likert6(Lexicon.vignettes["pol_bldins"]["question5"])
     # Questions for Policy Area 4
-    pol_co2tax1 = make_likert6(Lexicon.vignettes["PolicyArea3"]["question1"])
-    pol_co2tax2 = make_likert6(Lexicon.vignettes["PolicyArea3"]["question2"])
-    pol_co2tax3 = make_likert6(Lexicon.vignettes["PolicyArea3"]["question3"])
-    pol_co2tax4 = make_likert6(Lexicon.vignettes["PolicyArea3"]["question4"])
-    pol_co2tax5 = make_likert6(Lexicon.vignettes["PolicyArea3"]["question5"])
+    pol_co2tax1 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question1"])
+    pol_co2tax2 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question2"])
+    pol_co2tax3 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question3"])
+    pol_co2tax4 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question4"])
+    pol_co2tax5 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question5"])
 
     # initializing variables to store info on displayed vignettes
     policy_area = models.StringField()
     framing = models.StringField()
     direction = models.StringField()
+
+    #attention check
+    AttCheck_Q1 = make_likert6(Lexicon.AttCheck_Q1)
+    AttCheck_Q2 = make_likert6(Lexicon.AttCheck_Q2)
+    AttCheck_Q3 = make_likert6(Lexicon.AttCheck_Q3)
+    AttCheck_Q4 = make_likert6(Lexicon.AttCheck_Q4)
+    AttCheck_Q5 = make_likert6(Lexicon.AttCheck_Q5)
+    
+    failed_attention_check = models.BooleanField(initial=False)
+
 
 
 
@@ -60,8 +68,12 @@ class Player(BasePlayer):
 def creating_session(subsession: Subsession):
     players = subsession.get_players()
     
-    framing_methods = ['Framing1', 'Framing2', 'Framing3', 'Framing4']
+    framing_methods = ['TempFraming', 'RiskFraming', 'SociFraming', 'EconFraming']
     directions = ['left', 'right']
+
+    policy_areas_1_2 = ['pol_evehic', 'pol_energy']
+    policy_areas_3_4 = ['pol_bldins', 'pol_co2tax']
+
     all_combinations = list(itertools.product(directions, repeat=4))
     
     combinations_by_right_count = {i: [] for i in range(5)}
@@ -79,10 +91,9 @@ def creating_session(subsession: Subsession):
         [(framing_methods[i], direction) for i, direction in enumerate(combo)]
         for combo in final_combinations
     ]
-    
-    policy_areas_1_2 = ['PolicyArea1', 'PolicyArea2']
-    policy_areas_3_4 = ['PolicyArea3', 'PolicyArea4']
-    
+
+    random.shuffle(final_combinations_with_methods)
+       
     for i, player in enumerate(players):
         combination = final_combinations_with_methods[i % len(final_combinations_with_methods)]
         
@@ -91,7 +102,7 @@ def creating_session(subsession: Subsession):
         
         updated_combination = []
         for fm, direction in combination:
-            if 'Framing1' in fm or 'Framing2' in fm:
+            if 'TempFraming' in fm or 'RiskFraming' in fm:
                 policy_area = random_policy_areas_1_2.pop(0)
             else:
                 policy_area = random_policy_areas_3_4.pop(0)
@@ -102,43 +113,72 @@ def creating_session(subsession: Subsession):
 
 # PAGES
 class BaseVignettePage(Page):
+    form_model = 'player'
+
     @staticmethod
     def vars_for_template(player):
-        policy_area, framing, direction = player.participant.vars['policy_framing'][player.round_number - 1]
-        
-        player.policy_area = policy_area
-        player.framing = framing
-        player.direction = direction
+        if player.round_number == 2:  # Attention check round
+            return {
+                'headline': Lexicon.AttCheck_headline,
+                'content': Lexicon.AttCheck_content,
+                'round_number': player.round_number,
+                'attention_check': True  # Flag to indicate an attention check
+            }
+        else:
+            policy_area, framing, direction = player.participant.vars['policy_framing'][player.round_number - 1 if player.round_number < 2 else player.round_number - 2]
+            player.policy_area = policy_area
+            player.framing = framing
+            player.direction = direction
 
-        vignette = Lexicon.vignettes[policy_area][framing][direction]
-        
-        return {
-            'headline': vignette['headline'],
-            'content': vignette['content'],
-            'round_number': player.round_number
-        }
+            vignette = Lexicon.vignettes[policy_area][framing][direction]
+            
+            return {
+                'headline': vignette['headline'],
+                'content': vignette['content'],
+                'round_number': player.round_number,
+                'attention_check': False
+            }
 
-class QuestionsPage(Page):
-    form_model = 'player'
     @staticmethod
     def get_form_fields(player):
-        policy_area, framing, direction = player.participant.vars['policy_framing'][player.round_number - 1]
-        
-        question_field_map = {
-            'PolicyArea1': ['pol_evehic1', 'pol_evehic2', 'pol_evehic3', 'pol_evehic4', 'pol_evehic5'],
-            'PolicyArea2': ['pol_energy1', 'pol_energy2', 'pol_energy3', 'pol_energy4', 'pol_energy5'],
-            'PolicyArea3': ['pol_bldins1', 'pol_bldins2', 'pol_bldins3', 'pol_bldins4', 'pol_bldins5'],
-            'PolicyArea4': ['pol_co2tax1', 'pol_co2tax2', 'pol_co2tax3', 'pol_co2tax4', 'pol_co2tax5'],
-        }
-        
-        return question_field_map[policy_area]
+        if player.round_number == 2:
+            return ['AttCheck_Q1', 'AttCheck_Q2', 'AttCheck_Q3', 'AttCheck_Q4', 'AttCheck_Q5']
+        else:
+            policy_area, _, _ = player.participant.vars['policy_framing'][player.round_number - 1 if player.round_number < 2 else player.round_number - 2]
+            question_field_map = {
+                'pol_evehic': ['pol_evehic1', 'pol_evehic2', 'pol_evehic3', 'pol_evehic4', 'pol_evehic5'],
+                'pol_energy': ['pol_energy1', 'pol_energy2', 'pol_energy3', 'pol_energy4', 'pol_energy5'],
+                'pol_bldins': ['pol_bldins1', 'pol_bldins2', 'pol_bldins3', 'pol_bldins4', 'pol_bldins5'],
+                'pol_co2tax': ['pol_co2tax1', 'pol_co2tax2', 'pol_co2tax3', 'pol_co2tax4', 'pol_co2tax5'],
+            }
+            return question_field_map[policy_area]
+    
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        # Check if it's the attention check round
+        if player.round_number == 2:
+            correct_answers = [1, 2, 3, 4, 5]
+            actual_answers = [
+                player.AttCheck_Q1, 
+                player.AttCheck_Q2, 
+                player.AttCheck_Q3, 
+                player.AttCheck_Q4, 
+                player.AttCheck_Q5
+            ]
+            
+            # Determine if any of the answers do not match their expected values
+            player.failed_attention_check = not all(actual == correct for actual, correct in zip(actual_answers, correct_answers))
+        else:
+            player.failed_attention_check = False
+
+class AttentionCheckFailedPage(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.round_number == 2 and player.failed_attention_check
 
 class VignettePage(BaseVignettePage):
     pass
 
 
-class QuestionsPage(QuestionsPage):
-    pass
 
-
-page_sequence = [VignettePage, QuestionsPage]
+page_sequence = [VignettePage, AttentionCheckFailedPage]

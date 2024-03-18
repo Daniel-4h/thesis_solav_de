@@ -2,6 +2,25 @@
 {% block styles %}
     <link href="{{ static 'global/css/generalStyle.css'}}" rel="stylesheet">
     <link href="{{ static 'global/css/customStyle.css'}}" rel="stylesheet">
+
+    <style>  
+        table.radiotable th, table.radiotable td {
+            padding: 12px;
+            text-align: center;
+            min-width: 16.5%;
+            max-width: 16.5%;
+        }
+        /* Left-align the first column */
+        table.radiotable th:first-child, table.radiotable td:first-child {
+            text-align: center;
+            min-width: 16.5%;
+            max-width: 16.5%;
+        }
+        /* Alternating row colors */
+        table.radiotable tr:nth-child(even) {
+            background-color: #c0e3e0;
+        }
+    </style>
 {% endblock %}
 
 {% block title %}
@@ -12,24 +31,7 @@ Einstellungen zum Klimawandel
 {% block content %}
 
 <p>Wie sehr stimmen Sie den folgenden Aussagen zu?</p>
-<style>  
-    table.radiotable th, table.radiotable td {
-        padding: 12px;
-        text-align: center;
-        min-width: 16.5%;
-        max-width: 16.5%;
-    }
-    /* Left-align the first column */
-    table.radiotable th:first-child, table.radiotable td:first-child {
-        text-align: center;
-        min-width: 16.5%;
-        max-width: 16.5%;
-    }
-    /* Alternating row colors */
-    table.radiotable tr:nth-child(even) {
-        background-color: #c0e3e0;
-    }
-</style>
+
    
     {{ for field in form }}
     <hr>
