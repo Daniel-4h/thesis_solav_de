@@ -1,0 +1,28 @@
+{% block title %} {% endblock %}
+
+{% block styles %}
+<link href="{{ static 'global/css/generalStyle.css'}}" rel="stylesheet">
+<link href="{{ static 'global/css/customStyle.css'}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div>
+
+  <p>Sie sind ausgeschlossen!
+    Sie werden automatisch zurückgeleitet. 
+  </p>
+
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'global/js/functions.js' %}" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setWidthForTableColumns1();
+        });
+    </script>
+{% endblock %}
