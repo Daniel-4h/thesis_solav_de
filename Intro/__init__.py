@@ -44,6 +44,12 @@ class Exclusion(Page):
     @staticmethod
     def is_displayed(player):
         return player.exclusion
+    
+    @staticmethod
+    def vars_for_template(player: Player):
+        return{
+            'participantid': player.participant.label
+        }
 
 class Consent(Page):
     form_model = 'player'

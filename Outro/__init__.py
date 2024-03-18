@@ -25,6 +25,12 @@ class Player(BasePlayer):
 class Outro(Page):
     form_model = 'player'
     form_fields = []
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        return{
+            'participantid': player.participant.label
+        }
   
 
 page_sequence = [Outro]

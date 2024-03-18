@@ -16,7 +16,7 @@
 
 <div class="next-btn radiotable">
   <div style="float: right; padding-top: 2vh;">
-      <a href="https://www.panelservice.com/ps/se.ashx?s=6C2369B275393EA2&pid=da24021&int=bq&eid={{PARTICIPANT_ID}}" class="btn btn-primary" role="button">Teilnahme erfassen</a>
+      <a href="https://www.panelservice.com/ps/se.ashx?s=6C2369B275393EA2&pid=da24021&int=bq&eid={{participantid}}" class="btn btn-primary" role="button">Teilnahme erfassen</a>
   </div>
 </div>
 
@@ -25,6 +25,6 @@
 {% block scripts %}
   <script src="{% static 'global/js/functions.js' %}" defer></script>
   <script>
-    window.location.href = "https://www.panelservice.com/ps/se.ashx?s=6C2369B275393EA2&pid=da24021&int=bq&eid={{PARTICIPANT_ID}}";
+    window.location.href = "https://www.panelservice.com/ps/se.ashx?s=6C2369B275393EA2&pid=da24021&int=bq&eid={{participantid}}";
   </script>
 {% endblock %}

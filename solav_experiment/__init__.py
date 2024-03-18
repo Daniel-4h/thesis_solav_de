@@ -183,6 +183,12 @@ class AttentionCheckFailedPage(Page):
     @staticmethod
     def is_displayed(player):
         return player.round_number == 2 and player.failed_attention_check
+    
+    @staticmethod
+    def vars_for_template(player: Player):
+        return{
+            'participantid': player.participant.label
+        }
 
 class VignettePage(BaseVignettePage):
     pass
