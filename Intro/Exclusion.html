@@ -9,20 +9,34 @@
 
 <div>
 
-  <p>Sie sind ausgeschlossen!
-    Sie werden automatisch zurückgeleitet. 
-  </p>
+<p>
+Leider ist eine Teilnahme derzeit nicht möglich. 
+Sie werden in wenigen Sekunden weitergeleitet.  
+
+Sollten Sie nicht weitergeleitet werden, klicken Sie bitte auf den Button.
+</p>
 
 </div>
 
+<div class="next-btn radiotable">
+<div style="float: right; padding-top: 2vh;">
+    <a href="https://www.panelservice.com/ps/se.ashx?s=6C2369B275393EA2&pid=da24021&int=so&eid={{PARTICIPANT_ID}}" class="btn btn-primary" role="button">Teilnahme erfassen</a>
+</div>
+</div>
 
 {% endblock %}
 
 {% block scripts %}
-    <script src="{% static 'global/js/functions.js' %}" defer></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            setWidthForTableColumns1();
-        });
-    </script>
+<script src="{% static 'global/js/functions.js' %}" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setWidthForTableColumns1();
+
+        // Redirect after 5 seconds
+        setTimeout(function() {
+            window.location.href = "https://www.panelservice.com/ps/se.ashx?s=6C2369B275393EA2&pid=da24021&int=so&eid={{PARTICIPANT_ID}}";
+            //testing without participant ID first
+        }, 3000); // 5000 milliseconds = 5 seconds
+    });
+</script>
 {% endblock %}

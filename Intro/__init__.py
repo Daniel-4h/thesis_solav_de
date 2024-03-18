@@ -20,7 +20,7 @@ class Player(BasePlayer):
     mobileDevice= models.BooleanField(initial=False, blank=True)
 
     include_participant = models.IntegerField(
-        label = "Sind Sie älter als 18 Jahre und haben die deutsche Staatsbürgerschaft?",
+        label = "Sind Sie älter als 18 Jahre und besitzen die deutsche Staatsbürgerschaft?",
         choices=[1,0],
         widget=widgets.RadioSelect,
     )
@@ -58,12 +58,5 @@ class Instructions(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return dict(Lexicon=Lexicon)
-    
-class Introduction_SolAv(Page):
-    form_model = 'player'
-    form_fields = []
-    @staticmethod
-    def vars_for_template(player: Player):
-        return dict(Lexicon=Lexicon)
 
-page_sequence = [InclusionQuestion, Exclusion, Consent, Instructions, Introduction_SolAv]
+page_sequence = [Consent, InclusionQuestion, Exclusion, Instructions]

@@ -29,6 +29,13 @@ Persönliche Daten
 </style>
 
 {{ for field in form }}
+{{ if field.name == "age" }}
+    <div>
+        <hr>
+        <label style="font-weight: bold;">{{ field.label }}</label>
+        <div>{{ field }}</div>
+    </div>
+    {{ else }}
     <div>
         <hr>
         <label style="font-weight: bold;">{{ field.label }}</label>
@@ -41,6 +48,7 @@ Persönliche Daten
             {{ endfor }}
         </table>
     </div>
+    {{ endif }}
 {{ endfor }}
 
 

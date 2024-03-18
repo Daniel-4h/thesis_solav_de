@@ -146,8 +146,7 @@ class PolOrientation(Page):
 class Demographics(Page):
     form_model = 'player'
     form_fields = [
-        #'age', 
-        'gender', 'income', 'education', 'residential_area', 'region', 'party_affiliation']
+        'age', 'gender', 'income', 'education', 'residential_area', 'region', 'party_affiliation']
     @staticmethod
     def vars_for_template(player: Player):
         return dict(Lexicon=Lexicon)
@@ -160,4 +159,6 @@ class Honesty(Page):
         return dict(Lexicon=Lexicon)
 
 
-page_sequence = [PolOrientation, Demographics, Honesty]
+page_sequence = [PolOrientation, Demographics
+                 #, Honesty
+                 ]

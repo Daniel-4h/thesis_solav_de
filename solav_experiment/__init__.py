@@ -61,13 +61,21 @@ class Player(BasePlayer):
     
     failed_attention_check = models.BooleanField(initial=False)
 
+    #saving participant label to long format
+    #to be tested when implemented online
+    mfi_id = models.StringField()
+
+
 
 
 
 # FUNCTIONS
 def creating_session(subsession: Subsession):
     players = subsession.get_players()
-    
+
+    for player in players:
+            player.mfi_id = player.participant.label
+
     framing_methods = ['TempFraming', 'RiskFraming', 'SociFraming', 'EconFraming']
     directions = ['left', 'right']
 
