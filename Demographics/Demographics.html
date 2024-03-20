@@ -71,7 +71,22 @@ Persönliche Daten
     </div>
 </div> 
 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var rows = document.querySelectorAll('.radiotable tr');
+        rows.forEach(function(row) {
+            row.addEventListener('click', function() {
+                var radioButton = this.querySelector('input[type="radio"]');
+                if (radioButton) {
+                    radioButton.checked = true;
+                    // Trigger a change event for the radio button if necessary
+                    var event = new Event('change', { bubbles: true });
+                    radioButton.dispatchEvent(event);
+                }
+            });
+        });
+    });
+</script>
+
 {% endblock %}
-
-
-

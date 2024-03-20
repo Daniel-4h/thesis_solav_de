@@ -65,6 +65,22 @@
     {{ endfor }}
 </table>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var cells = document.querySelectorAll('.radiotable td');
+        cells.forEach(function(cell) {
+            cell.addEventListener('click', function() {
+                var radioButton = this.querySelector('input[type="radio"]');
+                if (radioButton) {
+                    radioButton.checked = true;
+                    // Trigger a change event for the radio button if necessary
+                    var event = new Event('change', { bubbles: true });
+                    radioButton.dispatchEvent(event);
+                }
+            });
+        });
+    });
+</script>
 
 <div class="next-btn radiotable">  
     <div style="float: right; padding-top: 2vh;">
