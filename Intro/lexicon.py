@@ -17,7 +17,7 @@ class Lexicon:
 
     ## Achtung hier richtige vergütung und währung und marktforschungsinstitut
     risks = 'Risiken und Vorteile:'
-    consent_p4 = 'Es sind keine Risiken im Zusammenhang mit Ihrer Teilnahme an dieser Studie verbunden. Durch Ihre Teilnahme unterstützen Sie die Erforschung offener Fragestellungen in der Umweltpsychologie.'
+    consent_p4 = 'Es sind keine Risiken im Zusammenhang mit Ihrer Teilnahme an dieser Studie verbunden. Durch Ihre Teilnahme unterstützen Sie die Erforschung offener Fragestellungen in der politischen Psychologie.'
 
     privacy = 'Datenschutz:'
     consent_p5 = 'Der Schutz Ihrer Daten hat für uns höchste Priorität. Ihre Angaben werden zu jeder Zeit streng vertraulich behandelt und nicht mit Ihren persönlichen Informationen verknüpft. Auch die an dieser Studie Beteiligten haben keinen Zugang zu den identifizierenden Informationen, außer Sie entscheiden sich, uns direkt zu kontaktieren. Nach Abschluss der Arbeit an dieser Studie werden die Daten in anonymisierter Form auf Open-Science-Plattformen veröffentlicht. Davor werden alle sensiblen Informationen aus dem Datensatz entfernt.'
