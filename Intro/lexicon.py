@@ -7,7 +7,7 @@ class Lexicon:
     consent_p2 = 'Was Ihre Teilnahme beinhaltet:'
 
     consent_bullet1 = 'Wir werden Sie nach Ihrer Einstellung zu verschiedenen politischen Vorschlägen fragen.'
-    consent_bullet2 = 'Außerdem werden Sie bitten, eine Reihe von Online-Fragebögen auszufüllen. Dabei sollen Sie bewerten, inwiefern bestimmte Aussagen auf Sie zutreffen.'
+    consent_bullet2 = 'Außerdem werden wir Sie bitten, eine Reihe von Online-Fragebögen auszufüllen. Dabei sollen Sie bewerten, inwiefern bestimmte Aussagen auf Sie zutreffen.'
     consent_bullet3= 'Zuletzt bitten wir Sie darum, einige demografische Informationen anzugeben, unter anderem Ihr Alter, Ihr Geschlecht, Ihre politische Orientierung und Ihr Einkommen.'
     
     
