@@ -20,11 +20,11 @@ class Lexicon:
     consent_p4 = 'Es sind keine Risiken im Zusammenhang mit Ihrer Teilnahme an dieser Studie verbunden. Durch Ihre Teilnahme unterstützen Sie die Erforschung offener Fragestellungen in der Umweltpsychologie.'
 
     privacy = 'Datenschutz:'
-    consent_p5 = 'Der Schutz Ihrer Daten hat für uns höchste Priorität. Ihre Angaben werden zu jeder Zeit streng vertraulich behandelt und nicht mit Ihnen persönlichen Informationen verknüpft. Auch die an dieser Studie Beteiligten, haben keinen Zugang zu den identifizierenden Informationen, außer Sie entscheiden sich, uns direkt zu kontaktieren. Nach Abschluss der Arbeit an dieser Studie werden die Daten in anonymisierter Form auf Open-Science-Plattformen veröffentlicht. Davor werden alle sensiblen Informationen aus dem Datensatz entfernt.'
+    consent_p5 = 'Der Schutz Ihrer Daten hat für uns höchste Priorität. Ihre Angaben werden zu jeder Zeit streng vertraulich behandelt und nicht mit Ihren persönlichen Informationen verknüpft. Auch die an dieser Studie Beteiligten, haben keinen Zugang zu den identifizierenden Informationen, außer Sie entscheiden sich, uns direkt zu kontaktieren. Nach Abschluss der Arbeit an dieser Studie werden die Daten in anonymisierter Form auf Open-Science-Plattformen veröffentlicht. Davor werden alle sensiblen Informationen aus dem Datensatz entfernt.'
 
     consent_p6 = 'Die Teilnahme an dieser Studie ist freiwillig. Sie können die Teilnahme jederzeit ablehnen oder abbrechen.'
 
-    consent_p8 = 'Bei Unklarheiten oder Fragen, senden Sie bitte eine E-Mail an daniel.ahrndsen@unibas.ch'
+    consent_p8 = 'Bei Unklarheiten oder Fragen, senden Sie bitte eine E-Mail an <a href="mailto:daniel.ahrndsen@unibas.ch">daniel.ahrndsen@unibas.ch</a>.'
 
     consent_p9 = 'Mit einem Klick auf „Weiter“ bestätigen Sie, dass Sie die obenstehenden Informationen gelesen und verstanden haben und sich bewusst für eine Teilnahme entscheiden.'
 
