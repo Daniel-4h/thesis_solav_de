@@ -62,19 +62,11 @@ class Player(BasePlayer):
     failed_attention_check = models.BooleanField(initial=False)
 
     #saving participant label to long format
-    #to be tested when implemented online
-    mfi_id = models.StringField()
-
-
-
-
+    participantid = models.StringField()
 
 # FUNCTIONS
 def creating_session(subsession: Subsession):
     players = subsession.get_players()
-
-    for player in players:
-            player.mfi_id = player.participant.label
 
     framing_methods = ['TempFraming', 'RiskFraming', 'SociFraming', 'EconFraming']
     directions = ['left', 'right']
@@ -130,13 +122,14 @@ class BaseVignettePage(Page):
                 'headline': Lexicon.AttCheck_headline,
                 'content': Lexicon.AttCheck_content,
                 'round_number': player.round_number,
-                'attention_check': True  # Flag to indicate an attention check
+                'attention_check': True,  # Flag to indicate an attention check
             }
         else:
             policy_area, framing, direction = player.participant.vars['policy_framing'][player.round_number - 1 if player.round_number < 2 else player.round_number - 2]
             player.policy_area = policy_area
             player.framing = framing
             player.direction = direction
+            player.participantid = player.participant.label
 
             vignette = Lexicon.vignettes[policy_area][framing][direction]
             
@@ -144,7 +137,7 @@ class BaseVignettePage(Page):
                 'headline': vignette['headline'],
                 'content': vignette['content'],
                 'round_number': player.round_number,
-                'attention_check': False
+                'attention_check': False,
             }
 
     @staticmethod
