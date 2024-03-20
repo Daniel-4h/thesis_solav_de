@@ -3,7 +3,7 @@ class Lexicon:
     next = "Weiter"
 
     #Consent Text
-    consent_p1 ='Herzlichen Dank für Ihr Interesse an unserer Studie. <br> Diese Studie wird von Daniel Ahrndsen im Rahmen seiner Abschlussarbeit durchgeführt und steht unter der Leitung von Prof. Ulf J.J. Hahnel und Zahra Rahmani, Fakultät für Psychologie der Universität Basel.'
+    consent_p1 ='Herzlichen Dank für Ihr Interesse an unserer Studie. <br> Diese Studie wird von Daniel Ahrndsen im Rahmen einer studentischen Abschlussarbeit durchgeführt und steht unter der Leitung von Prof. Ulf J.J. Hahnel und Zahra Rahmani, Fakultät für Psychologie der Universität Basel.'
     consent_p2 = 'Was Ihre Teilnahme beinhaltet:'
 
     consent_bullet1 = 'Wir werden Sie nach Ihrer Einstellung zu verschiedenen politischen Vorschlägen fragen.'
