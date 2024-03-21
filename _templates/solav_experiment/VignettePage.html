@@ -18,6 +18,15 @@
   table.radiotable tr:nth-child(even) {
       background-color: #c0e3e0;
   }
+  /* Different widths for second table */
+  table.radiotable.likertlong th, table.radiotable.likertlong td {
+      min-width: 7ch;
+      max-width: 7ch;
+  }
+  /* Different width for the first column */
+  table.radiotable.likertlong th:first-child, table.radiotable.likertlong td:first-child {
+      max-width: none;
+  }
   /* Centering "genau richtig" */
   .overflow-centered {
       display: flex;
@@ -74,16 +83,16 @@
 
 <hr>
 
-<table class="radiotable">
+<table class="radiotable likertlong">
     <tr> 
         <th></th>
-        <th class="radio-column">zu schwach</th>
+        <th class="overflow-centered">zu schwach</th>
         <th class="radio-column"></th>
         <th class="radio-column"></th>
         <th class="overflow-centered">genau richtig</th>
         <th class="radio-column"></th>
         <th class="radio-column"></th>
-        <th class="radio-column">zu stark</th>
+        <th class="overflow-centered">zu stark</th>
     </tr>
 
     {% for field in form %}
