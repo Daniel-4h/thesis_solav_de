@@ -25,7 +25,7 @@ class Lexicon:
             'question2': "CO2-Ausstoß durch fossile Kraftstoffe trägt maßgeblich zum Klimawandel bei.",
             'question3': "Der Wechsel auf E-Mobilität wäre ein wichtiger Schritt für den Klimaschutz.",
             'question4': "Mit Blick auf das Klima sollten wir dem Ausbau der Ladeinfrastruktur für E-Autos hohe Priorität einräumen.",
-            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist richtig."
+            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist..."
         },
 
         'pol_energy': {
@@ -53,7 +53,7 @@ class Lexicon:
             'question2': "Die Abhängigkeit von fossilen Energieträgern trägt maßgeblich zum Klimawandel bei.",
             'question3': "Der Ausbau der Windenergie wäre ein wichtiger Schritt für den Klimaschutz.",
             'question4': "Mit Blick auf das Klima sollten wir dem Abbau von Barrieren (wie z.B. Abstandsregelungen) hohe Priorität einräumen.",
-            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist richtig."
+            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist..."
         },
 
         'pol_bldins': {
@@ -81,7 +81,7 @@ class Lexicon:
             'question2': "Schlecht gedämmte Gebäude tragen maßgeblich zum Klimawandel bei.",
             'question3': "Die Dämmung von Gebäuden wäre ein wichtiger Schritt für den Klimaschutz.",
             'question4': "Mit Blick auf das Klima sollten wir Gesetzesreformen zur Dämmung von Gebäuden hohe Priorität einräumen.",
-            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist richtig."
+            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist..."
         },
 
         'pol_co2tax': {
@@ -109,15 +109,16 @@ class Lexicon:
             'question2': "Der CO2-Ausstoß insgesamt trägt maßgeblich zum Klimawandel bei.",
             'question3': "Die CO2-Steuer wäre ein wichtiger Schritt für den Klimaschutz.",
             'question4': "Mit Blick auf das Klima sollten wir der Ausweitung der CO2-Steuer hohe Priorität einräumen.",
-            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist richtig."
+            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist..."
         }
     }
 
     AttCheck_headline = "Klimaresistente Forstwirtschaft - mit Mischwäldern"
-    AttCheck_content = "<p>In den vergangenen Jahrzehnten wurden in deutschen Wäldern vermehrt schnell wachsende Nadelbäume gepflanzt. In der Forstwirtschaft sollten wir jetzt den Weg frei machen für mehr Mischwälder.</p><p>Mit diesem Text wollen wir sicherstellen, dass diese Umfrage aufmerksam bearbeitet wird. Bitte antworten Sie deshalb bei den untenstehenden Fragen folgendermaßen: Wählen Sie bei der ersten Frage die erste Auswahlmöglichkeit („gar nicht“), bei der zweiten Frage die zweite Möglichkeit, bei der dritten Frage die dritte Möglichkeit, bei der vierten Frage die vierte Möglichkeit und bei der fünften Frage die fünfte Möglichkeit.</p><p>Vielen Dank dafür, dass Sie die Umfrage gewissenhaft bearbeiten. Auf der nächsten Seite wird die Umfrage fortgesetzt.</p><p>Indem wir auf die Vielfalt der Natur vertrauen, werden unsere Wälder widerstandfähiger und sind den Veränderungen gewachsen, die durch den Klimawandel auf uns zukommen. Gleichzeitig sorgen wir dafür, dass CO2 abgebaut wird.</p>"
+    AttCheck_content = "<p>In den vergangenen Jahrzehnten wurden in deutschen Wäldern vermehrt schnell wachsende Nadelbäume gepflanzt. In der Forstwirtschaft sollten wir jetzt den Weg frei machen für mehr Mischwälder.</p><p>Mit diesem Text wollen wir sicherstellen, dass diese Umfrage aufmerksam bearbeitet wird. Bitte antworten Sie deshalb bei den untenstehenden Fragen folgendermaßen: Wählen Sie bei der ersten Frage die erste Auswahlmöglichkeit („gar nicht“), bei der zweiten Frage die zweite Möglichkeit, bei der dritten Frage die dritte Möglichkeit und bei der vierten Frage die vierte Möglichkeit. Zuletzt wählen Sie bei der letzten Frage die mittlere Möglichkeit („genau richtig“).</p><p>Vielen Dank dafür, dass Sie die Umfrage gewissenhaft bearbeiten. Auf der nächsten Seite wird die Umfrage fortgesetzt.</p><p>Indem wir auf die Vielfalt der Natur vertrauen, werden unsere Wälder widerstandfähiger und sind den Veränderungen gewachsen, die durch den Klimawandel auf uns zukommen. Gleichzeitig sorgen wir dafür, dass CO2 abgebaut wird.</p>"
     AttCheck_Q1 = "Im Großen und Ganzen stimme ich der vorgeschlagenen Maßnahme zu."
-    AttCheck_Q2 = "Die Stärke der vorgeschlagenen Maßnahme ist richtig."
-    AttCheck_Q3 = "Abholzung und Baumsterben tragen maßgeblich zum Klimawandel bei."
-    AttCheck_Q4 = "Klimaresistente Wälder wären ein wichtiger Schritt für den Klimaschutz."
-    AttCheck_Q5 = "Mit Blick auf das Klima sollten wir einer nachhaltigen Forstwirtschaft hohe Priorität einräumen."
+    AttCheck_Q2 = "Abholzung und Baumsterben tragen maßgeblich zum Klimawandel bei."
+    AttCheck_Q3 = "Klimaresistente Wälder wären ein wichtiger Schritt für den Klimaschutz."
+    AttCheck_Q4 = "Mit Blick auf das Klima sollten wir einer nachhaltigen Forstwirtschaft hohe Priorität einräumen."
+    AttCheck_Q5 = "Die Stärke der vorgeschlagenen Maßnahme ist..."
+    
     

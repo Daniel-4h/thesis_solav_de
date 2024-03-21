@@ -64,7 +64,7 @@ class Player(BasePlayer):
     AttCheck_Q2 = make_likert6(Lexicon.AttCheck_Q2)
     AttCheck_Q3 = make_likert6(Lexicon.AttCheck_Q3)
     AttCheck_Q4 = make_likert6(Lexicon.AttCheck_Q4)
-    AttCheck_Q5 = make_likert6(Lexicon.AttCheck_Q5)
+    AttCheck_Q5 = make_likert7(Lexicon.AttCheck_Q5)
     
     failed_attention_check = models.BooleanField(initial=False)
 
@@ -166,7 +166,7 @@ class BaseVignettePage(Page):
     def before_next_page(player, timeout_happened):
         # Check if it's the attention check round
         if player.round_number == 2:
-            correct_answers = [1, 2, 3, 4, 5]
+            correct_answers = [1, 2, 3, 4, 0]
             actual_answers = [
                 player.AttCheck_Q1, 
                 player.AttCheck_Q2, 
