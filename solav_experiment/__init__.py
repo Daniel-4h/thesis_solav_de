@@ -10,6 +10,13 @@ def make_likert6(label):
         widget=widgets.RadioSelect,
     )
 
+def make_likert7(label):
+    return models.IntegerField(
+        choices=[-3, -2, -1, 0, 1, 2, 3],
+        label=label,
+        widget=widgets.RadioSelect,
+    )
+
 class C(BaseConstants):
     NAME_IN_URL = 'solav_experiment'
     PLAYERS_PER_GROUP = None
@@ -27,25 +34,25 @@ class Player(BasePlayer):
     pol_evehic2 = make_likert6(Lexicon.vignettes["pol_evehic"]["question2"])
     pol_evehic3 = make_likert6(Lexicon.vignettes["pol_evehic"]["question3"])
     pol_evehic4 = make_likert6(Lexicon.vignettes["pol_evehic"]["question4"])
-    pol_evehic5 = make_likert6(Lexicon.vignettes["pol_evehic"]["question5"])
+    pol_evehic5 = make_likert7(Lexicon.vignettes["pol_evehic"]["question5"])
     # Questions for Policy Area 2
     pol_energy1 = make_likert6(Lexicon.vignettes["pol_energy"]["question1"])
     pol_energy2 = make_likert6(Lexicon.vignettes["pol_energy"]["question2"])
     pol_energy3 = make_likert6(Lexicon.vignettes["pol_energy"]["question3"])
     pol_energy4 = make_likert6(Lexicon.vignettes["pol_energy"]["question4"])
-    pol_energy5 = make_likert6(Lexicon.vignettes["pol_energy"]["question5"])
+    pol_energy5 = make_likert7(Lexicon.vignettes["pol_energy"]["question5"])
     # Questions for Policy Area 3
     pol_bldins1 = make_likert6(Lexicon.vignettes["pol_bldins"]["question1"])
     pol_bldins2 = make_likert6(Lexicon.vignettes["pol_bldins"]["question2"])
     pol_bldins3 = make_likert6(Lexicon.vignettes["pol_bldins"]["question3"])
     pol_bldins4 = make_likert6(Lexicon.vignettes["pol_bldins"]["question4"])
-    pol_bldins5 = make_likert6(Lexicon.vignettes["pol_bldins"]["question5"])
+    pol_bldins5 = make_likert7(Lexicon.vignettes["pol_bldins"]["question5"])
     # Questions for Policy Area 4
     pol_co2tax1 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question1"])
     pol_co2tax2 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question2"])
     pol_co2tax3 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question3"])
     pol_co2tax4 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question4"])
-    pol_co2tax5 = make_likert6(Lexicon.vignettes["pol_co2tax"]["question5"])
+    pol_co2tax5 = make_likert7(Lexicon.vignettes["pol_co2tax"]["question5"])
 
     # initializing variables to store info on displayed vignettes
     policy_area = models.StringField()

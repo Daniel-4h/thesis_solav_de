@@ -18,6 +18,11 @@
   table.radiotable tr:nth-child(even) {
       background-color: #c0e3e0;
   }
+  /* Centering "genau richtig" */
+  .overflow-centered {
+      display: flex;
+      justify-content: center;
+  }
 </style>
 {% endblock %}
 
@@ -56,14 +61,43 @@
 
    
     {% for field in form %}
+        {% if forloop.counter < 5 %}
         <tr>
             <th style="font-weight:normal;">{{ field.label }}</th>
-            {{ for choice in field }}
+            {% for choice in field %}
                 <td>{{ choice }}</td>
-            {{ endfor }}
+            {% endfor %}
         </tr>
-    {{ endfor }}
+        {% endif %}
+    {% endfor %}
 </table>
+
+<hr>
+
+<table class="radiotable">
+    <tr> 
+        <th></th>
+        <th class="radio-column">zu schwach</th>
+        <th class="radio-column"></th>
+        <th class="radio-column"></th>
+        <th class="overflow-centered">genau richtig</th>
+        <th class="radio-column"></th>
+        <th class="radio-column"></th>
+        <th class="radio-column">zu stark</th>
+    </tr>
+
+    {% for field in form %}
+        {% if forloop.counter == 5 %}
+        <tr>
+            <th style="font-weight:normal;">{{ field.label }}</th>
+            {% for choice in field %}
+                <td>{{ choice }}</td>
+            {% endfor %}
+        </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {

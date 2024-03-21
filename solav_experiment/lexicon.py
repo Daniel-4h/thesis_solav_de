@@ -22,11 +22,12 @@ class Lexicon:
                 }
             },
             'question1': "Im Großen und Ganzen stimme ich der vorgeschlagenen Maßnahme zu.",
-            'question2': "Die Stärke der vorgeschlagenen Maßnahme ist richtig.",
-            'question3': "CO2-Ausstoß durch fossile Kraftstoffe trägt maßgeblich zum Klimawandel bei.",
-            'question4': "Der Wechsel auf E-Mobilität wäre ein wichtiger Schritt für den Klimaschutz.",
-            'question5': "Mit Blick auf das Klima sollten wir dem Ausbau der Ladeinfrastruktur für E-Autos hohe Priorität einräumen."
+            'question2': "CO2-Ausstoß durch fossile Kraftstoffe trägt maßgeblich zum Klimawandel bei.",
+            'question3': "Der Wechsel auf E-Mobilität wäre ein wichtiger Schritt für den Klimaschutz.",
+            'question4': "Mit Blick auf das Klima sollten wir dem Ausbau der Ladeinfrastruktur für E-Autos hohe Priorität einräumen.",
+            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist richtig."
         },
+
         'pol_energy': {
             'TempFraming': {
                 'left': {
@@ -49,11 +50,12 @@ class Lexicon:
                 }
             },
             'question1': "Im Großen und Ganzen stimme ich der vorgeschlagenen Maßnahme zu.",
-            'question2': "Die Stärke der vorgeschlagenen Maßnahme ist richtig.",
-            'question3': "Die Abhängigkeit von fossilen Energieträgern trägt maßgeblich zum Klimawandel bei.",
-            'question4': "Der Ausbau der Windenergie wäre ein wichtiger Schritt für den Klimaschutz.",
-            'question5': "Mit Blick auf das Klima sollten wir dem Abbau von Barrieren (wie z.B. Abstandsregelungen) hohe Priorität einräumen."
+            'question2': "Die Abhängigkeit von fossilen Energieträgern trägt maßgeblich zum Klimawandel bei.",
+            'question3': "Der Ausbau der Windenergie wäre ein wichtiger Schritt für den Klimaschutz.",
+            'question4': "Mit Blick auf das Klima sollten wir dem Abbau von Barrieren (wie z.B. Abstandsregelungen) hohe Priorität einräumen.",
+            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist richtig."
         },
+
         'pol_bldins': {
             'SociFraming': {
                 'left': {
@@ -76,12 +78,12 @@ class Lexicon:
                 }
             },
             'question1': "Im Großen und Ganzen stimme ich der vorgeschlagenen Maßnahme zu.",
-            'question2': "Die Stärke der vorgeschlagenen Maßnahme ist richtig.",
-            'question3': "Schlecht gedämmte Gebäude tragen maßgeblich zum Klimawandel bei.",
-            'question4': "Die Dämmung von Gebäuden wäre ein wichtiger Schritt für den Klimaschutz.",
-            'question5': "Mit Blick auf das Klima sollten wir Gesetzesreformen zur Dämmung von Gebäuden hohe Priorität einräumen."
-
+            'question2': "Schlecht gedämmte Gebäude tragen maßgeblich zum Klimawandel bei.",
+            'question3': "Die Dämmung von Gebäuden wäre ein wichtiger Schritt für den Klimaschutz.",
+            'question4': "Mit Blick auf das Klima sollten wir Gesetzesreformen zur Dämmung von Gebäuden hohe Priorität einräumen.",
+            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist richtig."
         },
+
         'pol_co2tax': {
             'SociFraming': {
                 'left': {
@@ -104,10 +106,10 @@ class Lexicon:
                 }
             },
             'question1': "Im Großen und Ganzen stimme ich der vorgeschlagenen Maßnahme zu.",
-            'question2': "Die Stärke der vorgeschlagenen Maßnahme ist richtig.",
-            'question3': "Der CO2-Ausstoß insgesamt trägt maßgeblich zum Klimawandel bei.",
-            'question4': "Die CO2-Steuer wäre ein wichtiger Schritt für den Klimaschutz.",
-            'question5': "Mit Blick auf das Klima sollten wir der Ausweitung der CO2-Steuer hohe Priorität einräumen."
+            'question2': "Der CO2-Ausstoß insgesamt trägt maßgeblich zum Klimawandel bei.",
+            'question3': "Die CO2-Steuer wäre ein wichtiger Schritt für den Klimaschutz.",
+            'question4': "Mit Blick auf das Klima sollten wir der Ausweitung der CO2-Steuer hohe Priorität einräumen.",
+            'question5': "Die Stärke der vorgeschlagenen Maßnahme ist richtig."
         }
     }
 

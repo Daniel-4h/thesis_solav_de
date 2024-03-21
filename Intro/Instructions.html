@@ -26,10 +26,17 @@
 
 
 {% block scripts %}
-    <script src="{% static 'global/js/functions.js' %}" defer></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            setWidthForTableColumns1();
-        });
-    </script>
+<script src="{% static 'global/js/functions.js' %}" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Disable the next button initially
+        const nextButton = document.querySelector('.otree-btn-next');
+        nextButton.disabled = true;
+        
+        // Enable the button after 3 seconds
+        setTimeout(function() {
+            nextButton.disabled = false;
+        }, 3000); // 3000 milliseconds = 3 seconds
+    });
+</script>
 {% endblock %}
