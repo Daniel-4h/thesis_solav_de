@@ -118,6 +118,7 @@ class BaseVignettePage(Page):
     @staticmethod
     def vars_for_template(player):
         if player.round_number == 2:  # Attention check round
+            player.participantid = player.participant.label
             return {
                 'headline': Lexicon.AttCheck_headline,
                 'content': Lexicon.AttCheck_content,
