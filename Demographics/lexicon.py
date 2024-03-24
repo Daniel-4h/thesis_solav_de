@@ -1,8 +1,5 @@
 class Lexicon:
-    ### Political Orientation
-    po_title = "Politische Einstellung"
-    po_intro = "Viele Menschen benutzen die Ausdrücke „links“ und „rechts“, wenn sie verschiedene politische Positionen beschreiben wollen."
-    po1Label = "Wenn Sie an Ihre eigene politische Einstellung denken, wo würden Sie sich auf dieser Skala einordnen?"
+
 
     ### Demographics
     demographics_title = "Persönliche Daten"

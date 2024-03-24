@@ -19,7 +19,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    #saving participant label to long format
+    participantid_full = models.StringField()
    
 
 class Outro(Page):
@@ -28,6 +29,7 @@ class Outro(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
+        player.participantid_full = player.participant.label
         return{
             'participantid': player.participant.label
         }

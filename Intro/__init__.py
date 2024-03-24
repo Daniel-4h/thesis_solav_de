@@ -14,9 +14,14 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     pass
 
+def make_likert10(label):
+        return models.IntegerField(
+            choices=[1,2,3,4,5,6,7,8,9,10],
+            label=label,
+            widget=widgets.RadioSelect,
+            )
+
 class Player(BasePlayer):
-    dataScience = models.BooleanField(initial=False)
-    dataTeach = models.BooleanField(initial=False)
     mobileDevice= models.BooleanField(initial=False, blank=True)
 
     include_participant = models.IntegerField(
@@ -26,6 +31,18 @@ class Player(BasePlayer):
     )
 
     exclusion = models.BooleanField(initial=False)
+
+    ### Pol Orientation
+    po1 = make_likert10(Lexicon.po1Label)
+
+
+### PAGES
+class Consent(Page):
+    form_model = 'player'
+    form_fields = ['mobileDevice']
+    @staticmethod
+    def vars_for_template(player: Player):
+        return dict(Lexicon=Lexicon)
 
 class InclusionQuestion(Page):
     form_model = 'player'
@@ -51,9 +68,9 @@ class Exclusion(Page):
             'participantid': player.participant.label
         }
 
-class Consent(Page):
+class PolOrientation(Page):
     form_model = 'player'
-    form_fields = ['dataScience', 'dataTeach', 'mobileDevice']
+    form_fields= ['po1']
     @staticmethod
     def vars_for_template(player: Player):
         return dict(Lexicon=Lexicon)
@@ -65,4 +82,4 @@ class Instructions(Page):
     def vars_for_template(player: Player):
         return dict(Lexicon=Lexicon)
 
-page_sequence = [Consent, InclusionQuestion, Exclusion, Instructions]
+page_sequence = [Consent, InclusionQuestion, Exclusion, PolOrientation, Instructions]

@@ -17,17 +17,9 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     pass
 
-def make_likert10(label):
-        return models.IntegerField(
-            choices=[1,2,3,4,5,6,7,8,9,10],
-            label=label,
-            widget=widgets.RadioSelect,
-            )
+
 
 class Player(BasePlayer):
-
-    ### Pol Orientation
-    po1 = make_likert10(Lexicon.po1Label)
 
 
     ### Demographics
@@ -136,13 +128,6 @@ class Player(BasePlayer):
 
 # FUNCTIONS
 # PAGES
-class PolOrientation(Page):
-    form_model = 'player'
-    form_fields= ['po1']
-    @staticmethod
-    def vars_for_template(player: Player):
-        return dict(Lexicon=Lexicon)
-
 class Demographics(Page):
     form_model = 'player'
     form_fields = [
@@ -159,6 +144,6 @@ class Honesty(Page):
         return dict(Lexicon=Lexicon)
 
 
-page_sequence = [PolOrientation, Demographics
+page_sequence = [Demographics
                  #, Honesty
                  ]
